@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 8084888170036813786}
   - component: {fileID: 3498433062368852854}
   - component: {fileID: 607026951597376761}
+  - component: {fileID: 8820576844462504485}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -521,6 +522,22 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 4194788255603844608}
   m_MinHeight: 0
   m_MaxHeight: Infinity
+--- !u!114 &8820576844462504485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391414084521297794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114823c0560044ce18590beebfc40ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 3390075386102665935}
+  Head: {fileID: 6687697289708522667}
+  LeftHand: {fileID: 6181914694361467201}
+  RightHand: {fileID: 6852762789792048014}
 --- !u!1 &4423293838238926288
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +751,6 @@ GameObject:
   - component: {fileID: 6852762789792048014}
   - component: {fileID: 3299002414116502358}
   - component: {fileID: 4500681622166409824}
-  - component: {fileID: 5984847383199876744}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -996,43 +1012,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortAtRoot: 0
---- !u!114 &5984847383199876744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6177791996751816149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa170c56099be4a24a0d4e00585b375c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pinchAnimationMag:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 74705c4b-3e8e-4d2e-8c41-c21556987853
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  fistAnimationMag:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 509791d6-20d7-4595-812e-6432fc5c7e99
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 0}
-  handAnimator: {fileID: 0}
 --- !u!1001 &1073142668919244315
 PrefabInstance:
   m_ObjectHideFlags: 0
