@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Trolle/Scenes/handgun.unity
     guid: 78d6ff3e5329ccf4eb7b5145d7500d97
+  - enabled: 1
+    path: Assets/Magnus/RANGRANG.unity
+    guid: 2628d66da71994abb8f4d248f2242e79
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0d7d452c861e3aa45ace798ca20d1bab, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a23370bc1d61e441a73915c677c90e3, type: 2}
