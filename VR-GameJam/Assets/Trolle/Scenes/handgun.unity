@@ -1172,6 +1172,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &298045548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 298045549}
+  m_Layer: 0
+  m_Name: AttachPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298045549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298045548}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6181084, y: -0.5152504, z: -0.38013634, w: 0.45602128}
+  m_LocalPosition: {x: -0.0322, y: 0.0649, z: 0.3374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4114728706027986}
+  m_LocalEulerAnglesHint: {x: -107.162, y: 0, z: -79.629}
 --- !u!1 &302663622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,6 +1458,7 @@ Transform:
   - {fileID: 4789266187946609}
   - {fileID: 1523098657}
   - {fileID: 4103057325190124}
+  - {fileID: 4907948952119276}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &507533471 stripped
@@ -1590,7 +1622,7 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
+  m_SelectMode: 1
   m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
@@ -1673,7 +1705,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AttachTransform: {fileID: 886808764}
-  m_SecondaryAttachTransform: {fileID: 0}
+  m_SecondaryAttachTransform: {fileID: 298045549}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
@@ -2716,7 +2748,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 568272642}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -4545,7 +4577,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 1014470511}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -7367,6 +7399,7 @@ Transform:
   - {fileID: 796792751}
   - {fileID: 764501307}
   - {fileID: 886808764}
+  - {fileID: 298045549}
   - {fileID: 828698410}
   m_Father: {fileID: 482636450}
   m_LocalEulerAnglesHint: {x: -6.73, y: 0, z: 0}
@@ -7491,13 +7524,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882586509834960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.22069077, y: 0.902, z: 2.0758433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.23309292, y: -0.15548557, z: 1.1042858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1682670210}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 482636450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4954826286039962
 Transform:
@@ -8351,7 +8384,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 1682670210}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 0
+  m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -8515,7 +8548,6 @@ SceneRoots:
   - {fileID: 1516228860}
   - {fileID: 648913314}
   - {fileID: 1068567691}
-  - {fileID: 4907948952119276}
   - {fileID: 1642748542}
   - {fileID: 302663623}
   - {fileID: 482636450}

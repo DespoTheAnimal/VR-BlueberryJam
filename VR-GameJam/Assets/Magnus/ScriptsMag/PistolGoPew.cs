@@ -10,7 +10,7 @@ public class PistolGoPew : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] AudioSource AS;
     public AudioClip HRANG, pistol_reload;
-    private int factor_for_bullet = 1000;
+    private int factor_for_bullet = 250;
     private int time_to_delete = 5; 
     
     private int max_ammo = 12, current_ammo = 12;
