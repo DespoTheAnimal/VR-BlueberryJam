@@ -24,11 +24,7 @@ public class LectureShootingScript : NetworkBehaviour
     }
 
     public void BangBang(ActivateEventArgs arg){
-        GameObject newBullet = Instantiate(bullet);
-        newBullet.transform.position = spawnPosition.position;
-        newBullet.GetComponent<Rigidbody>().velocity = spawnPosition.forward * bulletSpeed;
-
-        Destroy(newBullet, 10);
+        SpawnBulletServerRPC();
     }
 
     [ServerRpc]
@@ -36,8 +32,5 @@ public class LectureShootingScript : NetworkBehaviour
         GameObject newBullet = Instantiate(bullet, spawnPosition.position, spawnPosition.rotation);
         NetworkObject netBullet = newBullet.GetComponent<NetworkObject>();
         netBullet.Spawn();
-        newBullet.GetComponent<Rigidbody>().velocity = spawnPosition.forward * bulletSpeed;
-
-        Destroy(newBullet, 10);
     }
 }
