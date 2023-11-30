@@ -9,10 +9,17 @@ public class PlayerNetting : NetworkBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private Transform leftHand;
     [SerializeField] private Transform rightHand;
-    // Start is called before the first frame update
-    void Start()
+
+    private NetworkVariable<int> score = new NetworkVariable<int>();
+
+    public override void OnNetworkSpawn()
     {
-        
+        base.OnNetworkSpawn();
+        if (IsOwner)
+        {
+            VRrigReference.Singleton.SetNetworkPlayer(this);
+        }
+        score.OnValueChanged += ScoreChanged;
     }
 
     // Update is called once per frame
@@ -31,5 +38,27 @@ public class PlayerNetting : NetworkBehaviour
             rightHand.position = VRrigReference.Singleton.rightHand.position;
             rightHand.rotation = VRrigReference.Singleton.rightHand.rotation;
         }
+    }
+
+    public void IncrementScore()
+    {
+        IncrementScoreServerRPC();
+    }
+
+    [ServerRpc]
+    public void IncrementScoreServerRPC()
+    {
+        score.Value++;
+    }
+
+    private void ScoreChanged(int oldValue, int currentValue)
+    {
+        print(currentValue);
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        base.OnNetworkDespawn();
+        score.OnValueChanged -= ScoreChanged;
     }
 }

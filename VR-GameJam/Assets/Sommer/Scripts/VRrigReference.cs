@@ -11,6 +11,8 @@ public class VRrigReference : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
+    public PlayerNetting localPlayer { private set; get; }
+
     void Awake(){
 
         //Singleton pattern
@@ -30,5 +32,10 @@ public class VRrigReference : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetNetworkPlayer(PlayerNetting myPlayer)
+    {
+        localPlayer = myPlayer;
     }
 }
