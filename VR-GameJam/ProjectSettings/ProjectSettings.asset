@@ -847,11 +847,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 5d14a469-f743-472d-971a-49e3577ae42b
+  cloudProjectId: c71575c4-17ab-4c85-822f-26525ecf4645
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: VR-GameJam
-  organizationId: despotheanimal
+  organizationId: mikkel-sommer
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
