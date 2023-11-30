@@ -110,7 +110,7 @@ public class Connect : MonoBehaviour
                 joinAllocation.HostConnectionData);
 
             NetworkManager.Singleton.StartClient();
-            Debug.Log("CLIENT IS STARTEN!");
+            Debug.Log("CLIENT IS STARTING!");
             
         }
         catch (RelayServiceException ex)
