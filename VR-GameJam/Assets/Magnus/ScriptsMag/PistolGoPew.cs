@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Unity.Netcode;
 
-public class PistolGoPew : MonoBehaviour
+public class PistolGoPew : NetworkBehaviour
 {
     [SerializeField] Transform shoot_point;
     [SerializeField] GameObject bullet;
@@ -19,10 +20,19 @@ public class PistolGoPew : MonoBehaviour
 
     private void Start() 
     {
-        XRGrabInteractable gun = GetComponent<XRGrabInteractable>();
-        gun.activated.AddListener(Shoot);
+        if(NetworkManager.Singleton == null) Debug.Log("No network manager yet!");
+        NetworkManager.Singleton.AddNetworkPrefab(bullet);
         AS = GameObject.Find("Audio").GetComponent<AudioSource>();
     }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        XRGrabInteractable gun = GetComponent<XRGrabInteractable>();
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gun.activated.AddListener(Shoot);
+    }
+
     private void Update() 
     {
         if (current_ammo <= 0)
@@ -31,17 +41,7 @@ public class PistolGoPew : MonoBehaviour
 
     public void Shoot(ActivateEventArgs arg)
     {
-        if (HasAmmo())
-        {
-            GameObject new_bullet = Instantiate(bullet); // Instantiate the bullet 
-            new_bullet.transform.position = shoot_point.position; 
-            new_bullet.transform.forward = shoot_point.forward;
-            new_bullet.transform.Rotate(90f, 0f, 0f);
-            new_bullet.GetComponent<Rigidbody>().AddForce(shoot_point.forward * factor_for_bullet);
-            AS.PlayOneShot(HRANG, 0.5f);
-            current_ammo--;
-            Destroy(new_bullet,time_to_delete);
-        }
+        NetShootServerRPC();
     }
 
     private bool HasAmmo()
@@ -64,6 +64,24 @@ public class PistolGoPew : MonoBehaviour
         {
            current_ammo = max_ammo; 
            time_to_reload = max_time;
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void NetShootServerRPC()
+    {
+        if (HasAmmo())
+        {
+            GameObject new_bullet = Instantiate(bullet, shoot_point.position, shoot_point.rotation);
+            new_bullet.transform.position = shoot_point.position; 
+            new_bullet.transform.forward = shoot_point.forward;
+            new_bullet.transform.Rotate(90f, 0f, 0f);
+            NetworkObject netBullet = new_bullet.GetComponent<NetworkObject>(); // Instantiate the bullet 
+            netBullet.Spawn();
+            Debug.Log("Shooting");
+            AS.PlayOneShot(HRANG, 0.5f);
+            current_ammo--;
+            Destroy(new_bullet,time_to_delete);
         }
     }
 }
