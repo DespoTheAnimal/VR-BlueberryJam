@@ -26,17 +26,26 @@ public class BulletBehaviour : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
-        GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+
+        var rigidBody = GetComponent<Rigidbody>();
+        rigidBody.isKinematic = false;
+        rigidBody.velocity = transform.forward * bulletSpeed;
 
         StartCoroutine(Despawn());
         
     }
 
+
+    [ServerRpc(RequireOwnership = false)]
+    public void DespawnServerRPC()
+    {
+        var netObject = GetComponent<NetworkObject>();
+        netObject.Despawn();
+    }
     IEnumerator Despawn()
     {
         yield return new WaitForSeconds(10);
 
-        var netObject = GetComponent<NetworkObject>();
-        netObject.Despawn();
+        DespawnServerRPC();
     }
 }
