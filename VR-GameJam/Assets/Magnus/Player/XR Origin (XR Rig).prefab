@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 8084888170036813786}
   - component: {fileID: 3498433062368852854}
   - component: {fileID: 607026951597376761}
-  - component: {fileID: 8820576844462504485}
+  - component: {fileID: 7057622200273779268}
   m_Layer: 0
   m_Name: XR Origin (XR Rig)
   m_TagString: Untagged
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_LocomotionProvider: {fileID: 4194788255603844608}
   m_MinHeight: 0
   m_MaxHeight: Infinity
---- !u!114 &8820576844462504485
+--- !u!114 &7057622200273779268
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,13 +531,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1391414084521297794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114823c0560044ce18590beebfc40ab0, type: 3}
+  m_Script: {fileID: 11500000, guid: 63e41e7393f5a4981bdd4f79abb5644b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 3390075386102665935}
-  Head: {fileID: 6687697289708522667}
-  LeftHand: {fileID: 6181914694361467201}
-  RightHand: {fileID: 6852762789792048014}
+  head: {fileID: 5387910738035062690}
+  leftHand: {fileID: 6181914694361467201}
+  rightHand: {fileID: 6852762789792048014}
 --- !u!1 &4423293838238926288
 GameObject:
   m_ObjectHideFlags: 0

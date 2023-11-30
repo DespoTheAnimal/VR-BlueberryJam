@@ -5,23 +5,7 @@ using Unity.Netcode;
 
 public class BulletBehaviour : NetworkBehaviour
 {
-    public float bulletSpeed = 10f;
-    private void Awake()
-    {
-        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private float bulletSpeed = 250f;
 
     public override void OnNetworkSpawn()
     {
@@ -29,8 +13,7 @@ public class BulletBehaviour : NetworkBehaviour
 
         var rigidBody = GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
-        rigidBody.velocity = transform.forward * bulletSpeed;
-
+        rigidBody.AddForce(transform.forward * bulletSpeed);
         StartCoroutine(Despawn());
         
     }

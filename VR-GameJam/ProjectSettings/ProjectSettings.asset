@@ -42,8 +42,8 @@ PlayerSettings:
   m_SplashScreenLogos: []
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
-  defaultScreenWidth: 1920
-  defaultScreenHeight: 1080
+  defaultScreenWidth: 1280
+  defaultScreenHeight: 720
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
@@ -101,7 +101,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -137,9 +137,8 @@ PlayerSettings:
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
   preloadedAssets:
-  - {fileID: 5531011875947463485, guid: 0a23370bc1d61e441a73915c677c90e3, type: 2}
-  - {fileID: 11400000, guid: 0d7d452c861e3aa45ace798ca20d1bab, type: 2}
-  - {fileID: 6150726299197553247, guid: a5634407d2cb31340ae9270e3399186a, type: 2}
+  - {fileID: 8273828104623698029, guid: 0a23370bc1d61e441a73915c677c90e3, type: 2}
+  - {fileID: -5240984305816572337, guid: a5634407d2cb31340ae9270e3399186a, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
