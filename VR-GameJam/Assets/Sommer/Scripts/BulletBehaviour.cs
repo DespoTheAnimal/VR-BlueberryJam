@@ -5,7 +5,7 @@ using Unity.Netcode;
 
 public class BulletBehaviour : NetworkBehaviour
 {
-    private float bulletSpeed = 250f;
+    private float bulletSpeed = 20f;
 
     public override void OnNetworkSpawn()
     {
@@ -13,7 +13,8 @@ public class BulletBehaviour : NetworkBehaviour
 
         var rigidBody = GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
-        rigidBody.AddForce(transform.forward * bulletSpeed);
+        rigidBody.velocity = transform.forward * bulletSpeed;
+        transform.Rotate(90f, 0f, 0f);
         StartCoroutine(Despawn());
         
     }

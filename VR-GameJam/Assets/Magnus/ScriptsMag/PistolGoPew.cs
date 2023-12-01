@@ -75,7 +75,6 @@ public class PistolGoPew : NetworkBehaviour
             GameObject new_bullet = Instantiate(bullet, shoot_point.position, shoot_point.rotation);
             new_bullet.transform.position = shoot_point.position; 
             new_bullet.transform.forward = shoot_point.forward;
-            new_bullet.transform.Rotate(90f, 0f, 0f);
             NetworkObject netBullet = new_bullet.GetComponent<NetworkObject>(); // Instantiate the bullet 
             netBullet.Spawn();
             Debug.Log("Shooting");
