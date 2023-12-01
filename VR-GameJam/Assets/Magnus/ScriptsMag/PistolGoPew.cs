@@ -97,13 +97,17 @@ public class PistolGoPew : NetworkBehaviour
     {
         if (!AS.isPlaying)
             AS.PlayOneShot(pistol_reload);
+
         time_to_reload -= Time.deltaTime;
+
         if (current_ammo == 0 && time_to_reload <= 0)
         {
-           current_ammo = max_ammo; 
-           time_to_reload = max_time;
+            current_ammo = max_ammo; // Set ammo to max
+            time_to_reload = max_time;
+            UpdateAmmoDisplay(); // Update the display after reloading
         }
     }
+
 
     [ServerRpc(RequireOwnership = false)]
     public void NetShootServerRPC()
@@ -111,14 +115,17 @@ public class PistolGoPew : NetworkBehaviour
         if (HasAmmo())
         {
             GameObject new_bullet = Instantiate(bullet, shoot_point.position, shoot_point.rotation);
-            new_bullet.transform.position = shoot_point.position; 
+            new_bullet.transform.position = shoot_point.position;
             new_bullet.transform.forward = shoot_point.forward;
-            NetworkObject netBullet = new_bullet.GetComponent<NetworkObject>(); // Instantiate the bullet 
+            NetworkObject netBullet = new_bullet.GetComponent<NetworkObject>();
             netBullet.Spawn();
             Debug.Log("Shooting");
             AS.PlayOneShot(HRANG, 0.5f);
-            current_ammo--;
-            Destroy(new_bullet,time_to_delete);
+
+            current_ammo--; // Decrement the ammo count only once
+            UpdateAmmoDisplay(); // Update the ammo display
+
+            Destroy(new_bullet, time_to_delete);
         }
     }
 }
