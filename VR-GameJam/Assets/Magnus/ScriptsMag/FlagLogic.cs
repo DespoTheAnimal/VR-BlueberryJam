@@ -11,6 +11,7 @@ public class FlagLogic : MonoBehaviour
     [SerializeField] AudioSource AS;
     public int Player1Score = 0;
     public int Player2Score = 0;
+    private bool isCaptured = false;
 
     public void YouHaveTheFlag(AudioClip clip)
     {
@@ -23,17 +24,19 @@ public class FlagLogic : MonoBehaviour
 
     private void OnTriggerEnter(Collider Other)
     {
-        if (Other.gameObject.tag == "Endzone1")
+        if (Other.gameObject.tag == "Endzone1" && !isCaptured)
         {
-            CaptureFlag();
+            isCaptured = true;
             Player1Score++;
+            CaptureFlag();
             flag.interactionLayers = 1;
 
         }
-        else if (Other.gameObject.tag == "Endzone2")
+        else if (Other.gameObject.tag == "Endzone2" && !isCaptured)
         {
-            CaptureFlag();
+            isCaptured = true;
             Player2Score++;
+            CaptureFlag();
             flag.interactionLayers = 1;
         }
         Debug.Log(flag.interactionLayers);
@@ -45,5 +48,6 @@ public class FlagLogic : MonoBehaviour
         flag.interactionLayers = 0;
         transform.position = FlagSpawn;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+        isCaptured = false;
     }
 }

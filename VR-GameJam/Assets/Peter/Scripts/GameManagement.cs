@@ -37,6 +37,4 @@ public class GameManagement : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-
-
 }
