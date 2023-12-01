@@ -20,11 +20,11 @@ public class GameManagement : MonoBehaviour
     }
 
     private void Winner(){
-        if (player1Score > 3){
+        if (player1Score > 2){
             winnerPanel.SetActive(true);
             winner.text = "Player 1!";
             Time.timeScale = 0;
-        } else if (player2Score > 3) {
+        } else if (player2Score > 2) {
             winnerPanel.SetActive(true);
             winner.text = "Player 2";
             Time.timeScale = 0;
