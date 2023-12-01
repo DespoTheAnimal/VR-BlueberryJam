@@ -4,9 +4,12 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.Netcode;
+using TMPro; // Import the TextMeshPro namespace to access the various functions.
 
 public class PistolGoPew : NetworkBehaviour
 {
+    [SerializeField] private GameObject uiCanvas; // Reference to the UI Canvas
+    [SerializeField] private TextMeshProUGUI ammoDisplay; // Reference to the TextMeshPro GUI element
     [SerializeField] Transform shoot_point;
     [SerializeField] GameObject bullet;
     [SerializeField] AudioSource AS;
@@ -23,8 +26,43 @@ public class PistolGoPew : NetworkBehaviour
         if(NetworkManager.Singleton == null) Debug.Log("No network manager yet!");
         NetworkManager.Singleton.AddNetworkPrefab(bullet);
         AS = GameObject.Find("Audio").GetComponent<AudioSource>();
+
+        UpdateAmmoDisplay(); // Update ammo display at start
     }
 
+    private void Awake()
+    {
+        XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
+        grabInteractable.selectEntered.AddListener(OnGrabbed);
+        grabInteractable.selectExited.AddListener(OnReleased);
+    }
+    private void UpdateAmmoDisplay()
+    {
+        if (ammoDisplay != null)
+        {
+            ammoDisplay.text = $"{current_ammo} / {max_ammo}"; // Update the text to show current ammo and max ammo
+        }
+    }
+
+    // Call this method whenever the ammo count changes
+    public void ChangeAmmoCount(int amount)
+    {
+        current_ammo += amount;
+        current_ammo = Mathf.Clamp(current_ammo, 0, max_ammo); // Ensure current ammo doesn't exceed max ammo or go below 0
+        UpdateAmmoDisplay();
+    }
+
+    private void OnGrabbed(SelectEnterEventArgs arg)
+    {
+        if (uiCanvas != null)
+            uiCanvas.SetActive(true); // Show the UI when the gun is grabbed
+    }
+
+    private void OnReleased(SelectExitEventArgs arg)
+    {
+        if (uiCanvas != null)
+            uiCanvas.SetActive(false); // Hide the UI when the gun is released
+    }
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
