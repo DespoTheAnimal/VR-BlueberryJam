@@ -8,6 +8,11 @@ public class GameManagement : MonoBehaviour
     private int player1Score = 0;
     private int player2Score = 0;
 
+    public int player1Kills = 0;
+    public int player2Kills = 0;
+    public TMP_Text p1Kills;
+    public TMP_Text p2Kills;
+
     public GameObject Flag;
     public TMP_Text winner;
     public GameObject winnerPanel;
@@ -15,6 +20,8 @@ public class GameManagement : MonoBehaviour
     private void Update() {
         player1Score = Flag.GetComponent<FlagLogic>().Player1Score;
         player2Score = Flag.GetComponent<FlagLogic>().Player2Score;
+        p1Kills.text = player1Kills.ToString();
+        p2Kills.text = player2Kills.ToString();
 
         Winner();
     }
