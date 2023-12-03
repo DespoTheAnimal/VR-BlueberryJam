@@ -2056,6 +2056,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3439359219537224709, guid: 08cd4e84a48e9e04eac2268ce2c24953, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1193389666}
+    - targetCorrespondingSourceObject: {fileID: 3439359219537224709, guid: 08cd4e84a48e9e04eac2268ce2c24953, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1193389667}
   m_SourcePrefab: {fileID: 100100000, guid: 08cd4e84a48e9e04eac2268ce2c24953, type: 3}
 --- !u!1 &1193389655 stripped
 GameObject:
@@ -2155,6 +2158,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 8673644565190024900, guid: b5f31ee3b766f42b582b87123ccfd5c5, type: 3}
   spawnPosition: {fileID: 225017132}
+--- !u!114 &1193389667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193389655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc03287e8a8de4b9787f8757772e7508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 0.61
+  duration: 0.3
+  xr: {fileID: 1455903258}
 --- !u!1001 &1222454185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2415,6 +2433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitNum: 0
+  SpawnPosP1: {x: 10, y: 0, z: 5}
+  SpawnPosP2: {x: -10, y: 0, z: -5}
 --- !u!114 &1268148658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,6 +2681,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
+--- !u!114 &1455903258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3299002414116502358, guid: 2bf0755a59735974ca4d86fcd6b8b2bb, type: 3}
+  m_PrefabInstance: {fileID: 1222454185}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caff514de9b15ad48ab85dcff5508221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1491214680
 GameObject:
   m_ObjectHideFlags: 0

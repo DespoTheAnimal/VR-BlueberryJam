@@ -771,6 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1100689400}
   - component: {fileID: 1100689399}
+  - component: {fileID: 1100689401}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -790,8 +791,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523cccfef2c304770b7fbaf4ea4fd575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1100689401}
   player1Kills: 0
   player2Kills: 0
+  p1Kills: {fileID: 0}
+  p2Kills: {fileID: 0}
   Flag: {fileID: 1412781248}
   winner: {fileID: 180724910}
   winnerPanel: {fileID: 673040417}
@@ -810,6 +814,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1100689401
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100689398}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd529d336565e4e228a05ffbbbd467cb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1213950442
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,17 +1077,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4571270817140377817, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
   m_PrefabInstance: {fileID: 5600015082725247172}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1412781251 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6622998336917132120, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-  m_PrefabInstance: {fileID: 5600015082725247172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412781248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1516228856
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,25 +2552,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2567674523353395183, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: flag
-      value: 
-      objectReference: {fileID: 1412781251}
-    - target: {fileID: 2567674523353395183, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: FlagSpawn.y
-      value: 1.45
+    - target: {fileID: 3199040481233652920, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
+      propertyPath: m_Volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4571270817140377817, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
       propertyPath: m_Name
       value: FlagWithBeam
-      objectReference: {fileID: 0}
-    - target: {fileID: 4571270817140377817, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6622998336917132120, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6666324212339721457, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2522,26 +2599,6 @@ PrefabInstance:
     - target: {fileID: 6666324212339721457, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7216514739629244241, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Radius
-      value: 0.11160498
-      objectReference: {fileID: 0}
-    - target: {fileID: 7216514739629244241, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Center.x
-      value: 0.24314696
-      objectReference: {fileID: 0}
-    - target: {fileID: 7216514739629244241, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Center.z
-      value: -0.85507363
-      objectReference: {fileID: 0}
-    - target: {fileID: 9155344835400392004, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9155344835400392004, guid: d14536da3bd4a4d1eafd822f45640815, type: 3}
-      propertyPath: m_Constraints
-      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
