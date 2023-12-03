@@ -40,7 +40,6 @@ public class FlagLogic : MonoBehaviour
             CaptureFlag();
             flag.interactionLayers = 1;
         }
-        Debug.Log(flag.interactionLayers);
     }
 
     private void CaptureFlag()

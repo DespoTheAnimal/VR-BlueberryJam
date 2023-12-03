@@ -21,8 +21,8 @@ public class GameManagement : MonoBehaviour
     private void Update() {
         player1Score = Flag.GetComponent<FlagLogic>().Player1Score;
         player2Score = Flag.GetComponent<FlagLogic>().Player2Score;
-        //p1Kills.text = player1Kills.ToString();
-        //p2Kills.text = player2Kills.ToString();
+        p1Kills.text = player1Kills.ToString();
+        p2Kills.text = player2Kills.ToString();
 
         Winner();
     }
@@ -32,12 +32,12 @@ public class GameManagement : MonoBehaviour
             audioSource.PlayOneShot(audioSource.clip);
             winnerPanel.SetActive(true);
             winner.text = "Player 1!";
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
         } else if (player2Score > 2) {
             audioSource.PlayOneShot(audioSource.clip);
             winnerPanel.SetActive(true);
             winner.text = "Player 2";
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
         }
     }
 }

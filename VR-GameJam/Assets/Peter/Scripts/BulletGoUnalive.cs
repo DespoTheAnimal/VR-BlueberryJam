@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BulletGoUnalive : MonoBehaviour
 {
-    public int hitNum = 0;
-    public Vector3 SpawnPosP1 = new Vector3(10f, 0f, 5f);
-    public Vector3 SpawnPosP2 = new Vector3(-10f, 0f, -5f);
+    private Vector3 SpawnPosP1 = new Vector3(14.5162945,0.365164995,-15.518199);
+    private Vector3 SpawnPosP2 = new Vector3(-14.5612411,0.365164995,15.1473541);
     public void OnTriggerEnter(Collider other) 
     {
         if (other.gameObject.tag == "Player1")
@@ -21,7 +20,6 @@ public class BulletGoUnalive : MonoBehaviour
     }
 
     public void PlayerHit(GameObject other, Vector3 spawn) {
-        hitNum++;
         other.transform.position = spawn;
     }
 }
