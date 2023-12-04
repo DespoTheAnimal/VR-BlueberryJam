@@ -5,21 +5,20 @@ using UnityEngine;
 public class Playername : MonoBehaviour
 {
     [SerializeField] StartGame _st;
-    public void CreatePlayer1()
+    GameObject newPlayer; 
+    
+    void Update()
     {
-        while (true)
+        if(newPlayer == null)
         {
-            GameObject newPlayer = GameObject.Find("NetworkPlayer(Clone)");
-            if (newPlayer != null)
-            {
-                newPlayer.name = "Player 1";
-                newPlayer.tag = "Player1";
-                _st.players[0] = newPlayer;
-                break;
-            }
+            newPlayer = GameObject.Find("NetworkPlayer(Clone)");
         }
-
-
+        else if (newPlayer != null)
+        {
+            newPlayer.name = "Player 1";
+            newPlayer.tag = "Player1";
+           _st.players[0] = newPlayer;
+        }
     }
 
     public void CreatePlayer2()
