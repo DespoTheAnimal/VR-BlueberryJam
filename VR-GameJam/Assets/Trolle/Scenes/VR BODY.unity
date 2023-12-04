@@ -517,7 +517,7 @@ PrefabInstance:
     - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 02b5c679599644912a842e58722d98b2, type: 3}
+      objectReference: {fileID: 474411981}
     - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
@@ -527,8 +527,16 @@ PrefabInstance:
       value: startHost
       objectReference: {fileID: 0}
     - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: CreatePlayer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.Renderer, UnityEngine
+      value: Playername, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8242147218591536189, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_Name
@@ -11901,12 +11909,40 @@ PrefabInstance:
       value: ClientStartButton
       objectReference: {fileID: 0}
     - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 648807472}
     - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 474411981}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
       propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: startClient
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: CreatePlayer2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Playername, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8451094764918638777, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
       propertyPath: m_LocalPosition.x
