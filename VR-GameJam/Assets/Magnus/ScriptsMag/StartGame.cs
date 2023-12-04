@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    GameObject[] players = new GameObject[2];
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] players = new GameObject[2];
 
     // Update is called once per frame
     void Update()
     {
-        players[0] = GameObject.Find("Player 1");
-        players[1] = GameObject.Find("Player 2");
-
         if (players.Length == 2)
         {
             StartGames();
