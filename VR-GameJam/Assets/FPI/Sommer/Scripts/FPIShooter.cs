@@ -50,7 +50,7 @@ public class FPIShooter : MonoBehaviour
         }
         else if (current_ammo <= 0)
         {
-            Reload();
+            Reload(); //Implement voice recognition reload function
         }
     }
 
@@ -71,7 +71,6 @@ public class FPIShooter : MonoBehaviour
         isTriggerHeldDown = false; // Trigger is released
     }
 
-    [ServerRpc(RequireOwnership = false)]
     public void SpawnBullet()
     {
         GameObject newBullet = Instantiate(bullet, spawnPosition.position, spawnPosition.rotation);
