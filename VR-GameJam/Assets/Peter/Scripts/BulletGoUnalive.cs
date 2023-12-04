@@ -8,6 +8,9 @@ public class BulletGoUnalive : MonoBehaviour
     private Vector3 SpawnPosP2 = new Vector3(-14.56f,0.37f,15.15f);
     public void OnTriggerEnter(Collider other) 
     {
+        if(other.gameObject.tag == "SafeZone"){
+            Destroy(this.gameObject);
+        }
         if (other.gameObject.tag == "Player1")
         {
             PlayerHit(other.gameObject, SpawnPosP1);
