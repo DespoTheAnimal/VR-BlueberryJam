@@ -16,7 +16,7 @@ public class StartGameBehaviour : MonoBehaviour
     void Update()
     {
         players[0] = GameObject.Find("NetworkPlayer(Clone)");
-        players[1] = GameObject.Find("NetworkPlayer(Clone)(Clone)");
+        players[1] = GameObject.Find("NetworkPlayer(Clone)");
 
         if (players.Length == 2)
         {

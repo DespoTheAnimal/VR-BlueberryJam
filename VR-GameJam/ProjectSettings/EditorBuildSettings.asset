@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Sommer/SommerTester.unity
     guid: 22dd1c589442342efa63afe377cfc852
+  - enabled: 1
+    path: Assets/Trolle/Scenes/VR BODY.unity
+    guid: 54d9024197aefa44ba47f668cbda156f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0d7d452c861e3aa45ace798ca20d1bab, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a23370bc1d61e441a73915c677c90e3, type: 2}
