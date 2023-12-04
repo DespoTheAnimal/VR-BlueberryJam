@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17300345, g: 0.21621521, b: 0.29820022, a: 1}
+  m_IndirectSpecularColor: {r: 0.1730035, g: 0.21621539, b: 0.29820034, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -501,6 +501,14 @@ PrefabInstance:
     - target: {fileID: 3804248783221567046, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 648807472}
+    - target: {fileID: 6343933523546356703, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startHost
       objectReference: {fileID: 0}
     - target: {fileID: 8242147218591536189, guid: e279424f36c3b46309e8beae211a2a89, type: 3}
       propertyPath: m_Name
@@ -1381,7 +1389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1516228857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NetworkConnect, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 1
@@ -8346,7 +8354,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Join Gmae
+  m_text: 'Join Game
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10829,6 +10839,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af7253adfe9a6c4ca7be0a1573f3c77, type: 3}
+--- !u!114 &648807472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6561448566215476025, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+  m_PrefabInstance: {fileID: 1711350327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9081e599431954dfc93faf0305802e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &648913310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11727,6 +11748,14 @@ PrefabInstance:
     - target: {fileID: 6468724500132312119, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
       propertyPath: m_Name
       value: ClientStartButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 648807472}
+    - target: {fileID: 7214384718011684990, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
+      propertyPath: m_FirstHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: startClient
       objectReference: {fileID: 0}
     - target: {fileID: 8451094764918638777, guid: bb5e40231aaa54929bc2a478617ef71b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17968,6 +17997,7 @@ MonoBehaviour:
   bullet: {fileID: 8673644565190024900, guid: b5f31ee3b766f42b582b87123ccfd5c5, type: 3}
   spawnPosition: {fileID: 0}
   rifleReloadSound: {fileID: 0}
+  rifleShootingSound: {fileID: 0}
   audioSource: {fileID: 0}
   uiCanvas: {fileID: 0}
   ammoDisplay: {fileID: 0}
@@ -23028,118 +23058,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0af7253adfe9a6c4ca7be0a1573f3c77, type: 3}
---- !u!1 &1516228856
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1516228860}
-  - component: {fileID: 1516228859}
-  - component: {fileID: 1516228858}
-  - component: {fileID: 1516228857}
-  m_Layer: 0
-  m_Name: Network Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1516228857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516228856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0999366629764456a402c33d3cf1bb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  joinCode: 
-  maxConnection: 2
-  transport: {fileID: 0}
---- !u!114 &1516228858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516228856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ProtocolType: 0
-  m_MaxPacketQueueSize: 128
-  m_MaxPayloadSize: 6144
-  m_HeartbeatTimeoutMS: 500
-  m_ConnectTimeoutMS: 1000
-  m_MaxConnectAttempts: 60
-  m_DisconnectTimeoutMS: 30000
-  ConnectionData:
-    Address: 127.0.0.1
-    Port: 7777
-    ServerListenAddress: 127.0.0.1
-  DebugSimulator:
-    PacketDelayMS: 0
-    PacketJitterMS: 0
-    PacketDropRate: 0
---- !u!114 &1516228859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516228856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593a2fe42fa9d37498c96f9a383b6521, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NetworkConfig:
-    ProtocolVersion: 0
-    NetworkTransport: {fileID: 1516228858}
-    PlayerPrefab: {fileID: 750438264612378172, guid: da5fc936181544e6aa49c8aacb5bc718, type: 3}
-    Prefabs:
-      NetworkPrefabsLists: []
-    TickRate: 30
-    ClientConnectionBufferTimeout: 10
-    ConnectionApproval: 0
-    ConnectionData: 
-    EnableTimeResync: 0
-    TimeResyncInterval: 30
-    EnsureNetworkVariableLengthSafety: 0
-    EnableSceneManagement: 1
-    ForceSamePrefabs: 1
-    RecycleNetworkIds: 1
-    NetworkIdRecycleDelay: 120
-    RpcHashSize: 0
-    LoadSceneTimeOut: 120
-    SpawnTimeout: 1
-    EnableNetworkLogs: 1
-    OldPrefabList: []
-  RunInBackground: 1
-  LogLevel: 1
---- !u!4 &1516228860
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516228856}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1516942433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901797596438614, guid: 0af7253adfe9a6c4ca7be0a1573f3c77, type: 3}
@@ -26357,6 +26275,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4648083744273294, guid: 4d95eed2946e3c244840107ae887de04, type: 3}
   m_PrefabInstance: {fileID: 663414816}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1711350327
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 21640427069668048, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_Name
+      value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.352451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6449516
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.630983
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7560785202887323338, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
 --- !u!4 &1712910496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4901797596438614, guid: 0af7253adfe9a6c4ca7be0a1573f3c77, type: 3}
@@ -30958,7 +30933,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1516228857}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NetworkConnect, Assembly-CSharp
         m_MethodName: Join
         m_Mode: 1
@@ -37948,7 +37923,6 @@ SceneRoots:
   - {fileID: 1305627398}
   - {fileID: 5600015082725247172}
   - {fileID: 1603552298}
-  - {fileID: 1516228860}
   - {fileID: 648913314}
   - {fileID: 1068567691}
   - {fileID: 302663623}
@@ -37963,3 +37937,4 @@ SceneRoots:
   - {fileID: 2111585360}
   - {fileID: 1141563692}
   - {fileID: 474411979}
+  - {fileID: 1711350327}
