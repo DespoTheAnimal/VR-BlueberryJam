@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1730035, g: 0.21621539, b: 0.29820034, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6833,6 +6833,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2306511815
       objectReference: {fileID: 0}
+    - target: {fileID: 1237285939035262125, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: AS
+      value: 
+      objectReference: {fileID: 405618314}
     - target: {fileID: 4495565884358600146, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
       propertyPath: m_Name
       value: MagnusRANGRANG (3) Variant
@@ -6843,7 +6847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0.366
       objectReference: {fileID: 0}
     - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
       propertyPath: m_LocalPosition.z
