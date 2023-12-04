@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.Netcode;
 using TMPro; // Import the TextMeshPro namespace to access the various functions.
+using UnityEngine.XR;
 
 public class PistolGoPew : NetworkBehaviour
 {
@@ -20,6 +21,8 @@ public class PistolGoPew : NetworkBehaviour
     private int max_ammo = 12, current_ammo = 12;
 
     private float time_to_reload = 3, max_time = 3;
+
+    private XRBaseController controller; 
 
     private void Start() 
     {

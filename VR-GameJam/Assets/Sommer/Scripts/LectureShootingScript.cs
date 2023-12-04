@@ -87,7 +87,6 @@ public class LectureShootingScript : NetworkBehaviour
 
         // Play shooting sound effect
         audioSource.PlayOneShot(rifleShootingSound);
-        TriggerHaptic();
     }
 
     private void Reload()

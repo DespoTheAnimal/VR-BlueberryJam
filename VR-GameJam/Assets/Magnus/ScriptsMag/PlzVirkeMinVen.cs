@@ -8,8 +8,9 @@ public class PlzVirkeMinVen : NetworkBehaviour
     [SerializeField] private GameObject playerPrefabA;
     [SerializeField] private GameObject playerPrefabB;
 
+
     [ServerRpc(RequireOwnership = false)]
-    public void SpawnPlayerServerRpc(ulong clientId, int prefabId)
+    public void SpawnCorrectplayerServerRpc(ulong clientId, int prefabId)
     {
         GameObject newPlayer;
         if (prefabId == 0)
