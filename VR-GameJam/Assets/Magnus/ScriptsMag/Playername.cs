@@ -6,7 +6,7 @@ public class Playername : MonoBehaviour
 {
     [SerializeField] StartGame _st;
     GameObject newPlayer; 
-    
+    GameObject newPlayer2;
     void Update()
     {
         if(newPlayer == null)
@@ -19,14 +19,18 @@ public class Playername : MonoBehaviour
             newPlayer.tag = "Player1";
            _st.players[0] = newPlayer;
         }
+       /* if (newPlayer2 == null)
+        {
+            newPlayer2 = GameObject.Find("n")
+        }*/
     }
 
-    public void CreatePlayer2()
+    /*public void CreatePlayer2()
     {
         while (true)
         {
             GameObject newPlayer = GameObject.Find("NetworkPlayer(Clone)");
-            if (newPlayer != null)
+        else if()
             {
                 newPlayer.name = "Player 2";
                 newPlayer.tag = "Player2";
@@ -34,7 +38,7 @@ public class Playername : MonoBehaviour
                 break;
             }
         }
-    }
+    }*/
 
 
 }

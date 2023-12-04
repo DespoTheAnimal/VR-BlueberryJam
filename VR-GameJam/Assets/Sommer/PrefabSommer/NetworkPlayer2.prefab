@@ -286,8 +286,8 @@ GameObject:
   - component: {fileID: 6851451444414331382}
   - component: {fileID: 7508176106357056129}
   m_Layer: 0
-  m_Name: NetworkPlayer
-  m_TagString: Player1
+  m_Name: NetworkPlayer2
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

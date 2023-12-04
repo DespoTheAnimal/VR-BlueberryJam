@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StartGame : MonoBehaviour
 {
-    public GameObject[] players = new GameObject[2];
+    public List<GameObject> players = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
     {
-        if (players.Length == 2)
+        if (players.Count == 2)
         {
             StartGames();
         }
