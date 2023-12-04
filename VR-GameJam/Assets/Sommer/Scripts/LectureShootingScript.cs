@@ -59,6 +59,12 @@ public class LectureShootingScript : NetworkBehaviour
         {
             Reload();
         }
+
+        if (current_ammo <= 0)
+        {
+            StopHapticFeedback(); // Stop haptic feedback when ammo is depleted
+            Reload();
+        }
     }
 
     public void BangBang()
@@ -66,16 +72,60 @@ public class LectureShootingScript : NetworkBehaviour
         SpawnBulletServerRPC();
         current_ammo--;
         UpdateAmmoDisplay();
+
+        // Call TriggerHaptic here
+        if (GetComponent<XRBaseInteractor>() is XRBaseControllerInteractor controllerInteractor)
+        {
+            TriggerHaptic(controllerInteractor.xrController);
+        }
     }
+
+    private Coroutine hapticCoroutine;
+
+    private void StartContinuousHaptic(XRBaseController controller)
+    {
+        if (hapticCoroutine != null)
+        {
+            StopCoroutine(hapticCoroutine);
+        }
+        hapticCoroutine = StartCoroutine(ContinuousHapticRoutine(controller));
+    }
+
+    private IEnumerator ContinuousHapticRoutine(XRBaseController controller)
+    {
+        while (isTriggerHeldDown && current_ammo > 0)
+        {
+            controller.SendHapticImpulse(intensity, duration);
+            yield return new WaitForSeconds(shotCooldown); // Wait for the next shot
+        }
+    }
+
+
 
     public void TriggerPulled(ActivateEventArgs arg)
     {
         isTriggerHeldDown = true; // Trigger is being held down
+
+        // Start continuous haptic feedback
+        if (arg.interactorObject is XRBaseControllerInteractor controllerInteractor)
+        {
+            StartContinuousHaptic(controllerInteractor.xrController);
+        }
+    }
+
+    private void StopHapticFeedback()
+    {
+        if (hapticCoroutine != null)
+        {
+            StopCoroutine(hapticCoroutine);
+            hapticCoroutine = null;
+        }
     }
 
     public void TriggerReleased(DeactivateEventArgs arg)
     {
         isTriggerHeldDown = false; // Trigger is released
+        StopHapticFeedback(); // Stop haptic feedback
     }
 
     [ServerRpc(RequireOwnership = false)]
@@ -138,8 +188,10 @@ public class LectureShootingScript : NetworkBehaviour
         controller.SendHapticImpulse(intensity, duration);
     }
 
-    public void TriggerHaptic(BaseInteractionEventArgs eventArgs){
-        if(eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor){
+    public void TriggerHaptic(BaseInteractionEventArgs eventArgs)
+    {
+        if (eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor)
+        {
             TriggerHaptic(controllerInteractor.xrController);
         }
     }
