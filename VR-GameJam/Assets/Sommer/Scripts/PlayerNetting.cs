@@ -9,6 +9,8 @@ public class PlayerNetting : NetworkBehaviour
     [SerializeField] private Transform head;
     [SerializeField] private Transform leftHand;
     [SerializeField] private Transform rightHand;
+    //[SerializeField] private Transform body;
+
 
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
@@ -43,6 +45,10 @@ public class PlayerNetting : NetworkBehaviour
 
             rightHand.position = VRrigReference.Singleton.rightHand.position;
             rightHand.rotation = VRrigReference.Singleton.rightHand.rotation;
+
+            //body.position = VRrigReference.Singleton.body.position;
+            //body.rotation = VRrigReference.Singleton.body.rotation;
+
         }
     }
 

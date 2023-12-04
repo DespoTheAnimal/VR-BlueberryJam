@@ -24,6 +24,11 @@ public class FPIShooter : MonoBehaviour
 
     private bool isTriggerHeldDown = false; // Flag to check if trigger is held down
 
+    private XRBaseController currentController;
+
+    public AudioClip emptyGunSound; // Sound to play when the gun is empty
+
+
 
     private void Start()
     {
@@ -43,23 +48,34 @@ public class FPIShooter : MonoBehaviour
     {
         timeSinceLastShot += Time.deltaTime;
 
-        if (isTriggerHeldDown && timeSinceLastShot >= shotCooldown && current_ammo > 0)
+        if (isTriggerHeldDown && timeSinceLastShot >= shotCooldown)
         {
             BangBang();
             timeSinceLastShot = 0.0f; // Reset the timer
         }
-        else if (current_ammo <= 0)
+        else if (current_ammo <= 0 && reloadTimer == reloadTime)
         {
-            Reload(); //Implement voice recognition reload function
+            Reload(); // Implement voice recognition reload function
         }
     }
 
+
+
     public void BangBang()
     {
-        SpawnBullet();
-        current_ammo--;
-        UpdateAmmoDisplay();
+        if (current_ammo > 0)
+        {
+            SpawnBullet();
+            current_ammo--;
+            UpdateAmmoDisplay();
+        }
+        else
+        {
+            // Play empty gun sound effect
+            audioSource.PlayOneShot(emptyGunSound);
+        }
     }
+
 
     public void TriggerPulled(ActivateEventArgs arg)
     {
@@ -111,13 +127,22 @@ public class FPIShooter : MonoBehaviour
     {
         if (uiCanvas != null)
             uiCanvas.SetActive(true); // Show the UI when the rifle is grabbed
+
+        if (arg.interactorObject is XRBaseControllerInteractor controllerInteractor)
+        {
+            currentController = controllerInteractor.xrController;
+        }
     }
+
 
     private void OnReleased(SelectExitEventArgs arg)
     {
         if (uiCanvas != null)
             uiCanvas.SetActive(false); // Hide the UI when the rifle is released
+
+        currentController = null;
     }
+
 
     public float intensity = 0.7f;
     public float duration = 0.15f;
@@ -127,6 +152,7 @@ public class FPIShooter : MonoBehaviour
     {
         controller.SendHapticImpulse(intensity, duration);
     }
+
 
     public void TriggerHaptic(BaseInteractionEventArgs eventArgs){
         if(eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor){

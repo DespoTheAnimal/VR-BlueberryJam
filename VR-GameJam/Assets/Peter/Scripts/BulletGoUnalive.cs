@@ -14,7 +14,7 @@ public class BulletGoUnalive : MonoBehaviour
         }
         if (other.gameObject.tag == "Player1")
         {
-            PlayerHit(other.gameObject, SpawnPosP1);
+            PlayerHit(other.gameObject.transform.parent.gameObject, SpawnPosP1);
             GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().player1Kills++;
         } else if (other.gameObject.tag == "Player2")
         {
