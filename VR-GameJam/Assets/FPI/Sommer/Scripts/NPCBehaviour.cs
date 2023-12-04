@@ -25,7 +25,7 @@ public class NPCBehaviour : MonoBehaviour
             audioSource.clip = clip;
             audioSource.Play();
             Debug.Log("Hej");
-            Destroy(gameObject);
+            Destroy(gameObject, 10f);
         }
     }
 
