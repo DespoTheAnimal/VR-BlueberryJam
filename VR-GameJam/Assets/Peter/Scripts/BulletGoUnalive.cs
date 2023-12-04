@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode.Components;
 
 public class BulletGoUnalive : MonoBehaviour
 {
@@ -23,6 +24,6 @@ public class BulletGoUnalive : MonoBehaviour
     }
 
     public void PlayerHit(GameObject other, Vector3 spawn) {
-        other.transform.position = spawn;
+        other.GetComponent<NetworkTransform>().Teleport(spawn, transform.rotation, transform.localScale);
     }
 }
