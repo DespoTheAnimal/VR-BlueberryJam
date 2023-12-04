@@ -97,7 +97,7 @@ public class Connect : MonoBehaviour
             var lobby = await Lobbies.Instance.QuickJoinLobbyAsync();
 
             relayCode = lobby.Data["JOIN_CODE"].Value;
-
+            
             var joinAllocation = await RelayService.Instance.JoinAllocationAsync(relayCode);
             playerAllocationId = joinAllocation.AllocationId;
             Debug.Log("Player Allocation ID: " + playerAllocationId);
