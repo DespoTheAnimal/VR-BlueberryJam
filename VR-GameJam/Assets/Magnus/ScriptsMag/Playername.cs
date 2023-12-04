@@ -10,11 +10,11 @@ public class Playername : MonoBehaviour
         while (true)
         {
             GameObject newPlayer = GameObject.Find("NetworkPlayer(Clone)");
-            newPlayer.name = "Player 1";
-            newPlayer.tag = "Player1";
             if (newPlayer != null)
             {
-                newPlayer = _st.players[0];
+                newPlayer.name = "Player 1";
+                newPlayer.tag = "Player1";
+                _st.players[0] = newPlayer;
                 break;
             }
         }
@@ -27,11 +27,11 @@ public class Playername : MonoBehaviour
         while (true)
         {
             GameObject newPlayer = GameObject.Find("NetworkPlayer(Clone)");
-            newPlayer.name = "Player 2";
-            newPlayer.tag = "Player2";
             if (newPlayer != null)
             {
-                newPlayer = _st.players[1];
+                newPlayer.name = "Player 2";
+                newPlayer.tag = "Player2";
+                _st.players[1] = newPlayer;
                 break;
             }
         }
