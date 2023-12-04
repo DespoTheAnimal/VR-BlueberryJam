@@ -84,6 +84,7 @@ public class LectureShootingScript : NetworkBehaviour
 
         // Play shooting sound effect
         audioSource.PlayOneShot(rifleShootingSound);
+        TriggerHaptic();
     }
 
     private void Reload()
@@ -124,6 +125,14 @@ public class LectureShootingScript : NetworkBehaviour
     {
         if (uiCanvas != null)
             uiCanvas.SetActive(false); // Hide the UI when the rifle is released
+    }
+
+    public float intensity = 0.7f;
+    public float duration = 0.15f;
+
+    public void TriggerHaptic(XRBaseController controller)
+    {
+        controller.SendHapticImpulse(intensity, duration);
     }
 }
 
