@@ -18,6 +18,10 @@ public class PlayerNetting : NetworkBehaviour
         if (IsOwner)
         {
             VRrigReference.Singleton.SetNetworkPlayer(this);
+            gameObject.tag = "Player1";
+        }
+        else {
+            gameObject.tag = "Player2";
         }
         score.OnValueChanged += ScoreChanged;
     }
