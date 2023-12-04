@@ -11,6 +11,8 @@ public class VRrigReference : MonoBehaviour
     public Transform leftHand;
     public Transform rightHand;
 
+    //public Transform body;
+
     public PlayerNetting localPlayer { private set; get; }
 
     void Awake(){
