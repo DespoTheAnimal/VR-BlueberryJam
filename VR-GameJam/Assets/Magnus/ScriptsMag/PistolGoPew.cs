@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 using Unity.Netcode;
 using TMPro; // Import the TextMeshPro namespace to access the various functions.
 using UnityEngine.XR;
+using Unity.VisualScripting;
 
 public class PistolGoPew : NetworkBehaviour
 {
@@ -31,6 +32,9 @@ public class PistolGoPew : NetworkBehaviour
         AS = GameObject.Find("Audio").GetComponent<AudioSource>();
 
         UpdateAmmoDisplay(); // Update ammo display at start
+
+        XRBaseInteractable interactable = GetComponent<XRBaseInteractable>();
+        interactable.activated.AddListener(TriggerHaptic);
     }
 
     private void Awake()
@@ -129,6 +133,21 @@ public class PistolGoPew : NetworkBehaviour
             UpdateAmmoDisplay(); // Update the ammo display
 
             Destroy(new_bullet, time_to_delete);
+        }
+    }
+
+    public float intensity = 0.7f;
+    public float duration = 0.15f;
+
+
+    public void TriggerHaptic(XRBaseController controller)
+    {
+        controller.SendHapticImpulse(intensity, duration);
+    }
+
+    public void TriggerHaptic(BaseInteractionEventArgs eventArgs){
+        if(eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor){
+            TriggerHaptic(controllerInteractor.xrController);
         }
     }
 }
