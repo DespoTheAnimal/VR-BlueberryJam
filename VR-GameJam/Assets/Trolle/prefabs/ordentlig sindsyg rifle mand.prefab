@@ -718,3 +718,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 8673644565190024900, guid: b5f31ee3b766f42b582b87123ccfd5c5, type: 3}
   spawnPosition: {fileID: 6322580478982945841}
+  rifleReloadSound: {fileID: 8300000, guid: f62cbf89246239348be2dadc2826c8ac, type: 3}
+  rifleShootingSound: {fileID: 8300000, guid: 568d4b2d098a9484db51508fb931afd9, type: 3}
+  audioSource: {fileID: 0}
+  uiCanvas: {fileID: 3599152344097522082}
+  ammoDisplay: {fileID: 933962228253966433}
+  intensity: 0.7
+  duration: 0.15

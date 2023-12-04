@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17300345, g: 0.21621521, b: 0.29820022, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6821,6 +6821,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4847348595730182, guid: 7a60a7260d0b10845afc2b060d422f25, type: 3}
   m_PrefabInstance: {fileID: 381328709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &393831414
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 790253499696847305, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2306511815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495565884358600146, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_Name
+      value: MagnusRANGRANG (3) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.36292
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00000023841858
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.2131612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8364071809256840213, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 85d6deed9315daf4fa4209ae85864f8b, type: 3}
 --- !u!1 &395389208
 GameObject:
   m_ObjectHideFlags: 0
@@ -19973,6 +20034,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 302663623}
   m_LocalEulerAnglesHint: {x: -6.263, y: 0, z: 0}
+--- !u!1001 &1304670313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.23561
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1513336
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063527966034895797, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5711948686112840695, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: m_Name
+      value: ordentlig sindsyg rifle mand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6856902504328904698, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 389356387
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8773d15fa2ccbb947adff3117f271ad9, type: 3}
 --- !u!1 &1305627397
 GameObject:
   m_ObjectHideFlags: 0
@@ -38303,3 +38425,5 @@ SceneRoots:
   - {fileID: 1711350327}
   - {fileID: 192569884}
   - {fileID: 2057698913}
+  - {fileID: 1304670313}
+  - {fileID: 393831414}
