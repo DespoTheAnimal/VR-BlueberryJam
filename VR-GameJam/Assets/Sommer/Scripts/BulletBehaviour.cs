@@ -14,7 +14,7 @@ public class BulletBehaviour : NetworkBehaviour
         var rigidBody = GetComponent<Rigidbody>();
         rigidBody.isKinematic = false;
         rigidBody.velocity = transform.forward * bulletSpeed;
-        transform.Rotate(90f, 0f, 0f);
+        //transform.Rotate(90f, 0f, 0f);
         StartCoroutine(Despawn());
         
     }
