@@ -10,6 +10,7 @@ TagManager:
   - GameManager
   - Player1
   - Player2
+  - SafeZone
   layers:
   - Default
   - TransparentFX

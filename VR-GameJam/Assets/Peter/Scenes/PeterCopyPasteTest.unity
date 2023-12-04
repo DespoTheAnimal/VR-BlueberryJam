@@ -631,7 +631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3278064237554979258, guid: 3faa92302727caa47aa98b5d2fc47802, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3792021337
+      value: 2154085585
       objectReference: {fileID: 0}
     - target: {fileID: 6024316216700310630, guid: 3faa92302727caa47aa98b5d2fc47802, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2432,9 +2432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a22a0f767a81432096bb883f8950f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitNum: 0
-  SpawnPosP1: {x: 10, y: 0, z: 5}
-  SpawnPosP2: {x: -10, y: 0, z: -5}
 --- !u!114 &1268148658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,7 +3100,7 @@ GameObject:
   - component: {fileID: 1906648709}
   m_Layer: 0
   m_Name: NetworkPlayer
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
