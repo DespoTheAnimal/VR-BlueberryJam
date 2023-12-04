@@ -10,6 +10,7 @@ public class LectureShootingScript : NetworkBehaviour
     public GameObject bullet;
     public Transform spawnPosition;
     public AudioClip rifleReloadSound; // Reload sound clip
+    public AudioClip rifleShootingSound; // Shooting sound clip
     public AudioSource audioSource; // Audio source component
 
     [SerializeField] private GameObject uiCanvas; // Reference to the UI Canvas
@@ -17,10 +18,11 @@ public class LectureShootingScript : NetworkBehaviour
 
     private int max_ammo = 30, current_ammo = 30;
     private float reloadTime = 3, reloadTimer = 3;
-    private float shotCooldown = 0.25f; // Time between shots
+    private float shotCooldown = 0.15f; // Time between shots
     private float timeSinceLastShot = 0.0f; // Timer to track time since last shot
 
     private bool isTriggerHeldDown = false; // Flag to check if trigger is held down
+
 
     private void Start()
     {
@@ -79,20 +81,28 @@ public class LectureShootingScript : NetworkBehaviour
         GameObject newBullet = Instantiate(bullet, spawnPosition.position, spawnPosition.rotation);
         NetworkObject netBullet = newBullet.GetComponent<NetworkObject>();
         netBullet.Spawn();
+
+        // Play shooting sound effect
+        audioSource.PlayOneShot(rifleShootingSound);
     }
 
     private void Reload()
     {
-        if (!audioSource.isPlaying)
+        // Check if reloading needs to start
+        if (current_ammo <= 0 && reloadTimer == reloadTime)
         {
-            audioSource.PlayOneShot(rifleReloadSound);
-            reloadTimer -= Time.deltaTime;
-            if (reloadTimer <= 0)
-            {
-                current_ammo = max_ammo;
-                reloadTimer = reloadTime;
-                UpdateAmmoDisplay();
-            }
+            audioSource.PlayOneShot(rifleReloadSound); // Start reload sound
+            reloadTimer -= Time.deltaTime; // Start counting down the timer
+        }
+        else if (reloadTimer < reloadTime && reloadTimer > 0)
+        {
+            reloadTimer -= Time.deltaTime; // Continue counting down the timer
+        }
+        else if (reloadTimer <= 0)
+        {
+            current_ammo = max_ammo; // Reset ammo to max
+            reloadTimer = reloadTime; // Reset the reload timer for the next reload
+            UpdateAmmoDisplay(); // Update the display after reloading
         }
     }
 
