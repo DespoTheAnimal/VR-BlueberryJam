@@ -458,6 +458,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3936766547650446558, guid: 3faa92302727caa47aa98b5d2fc47802, type: 3}
+      propertyPath: HRANG
+      value: 
+      objectReference: {fileID: 8300000, guid: b630a436b14b87a4a9ed1f3d7a4ce392, type: 3}
+    - target: {fileID: 3936766547650446558, guid: 3faa92302727caa47aa98b5d2fc47802, type: 3}
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 5738081609198531574}
