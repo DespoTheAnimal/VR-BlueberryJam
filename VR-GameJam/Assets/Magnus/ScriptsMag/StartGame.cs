@@ -1,10 +1,10 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class StartGameBehaviour : MonoBehaviour
+public class StartGame : MonoBehaviour
 {
-
-    private GameObject[] players = new GameObject[2];
+    GameObject[] players = new GameObject[2];
 
     // Start is called before the first frame update
     void Start()
@@ -15,20 +15,18 @@ public class StartGameBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        players[0] = GameObject.Find("NetworkPlayer(Clone)");
-        players[1] = GameObject.Find("NetworkPlayer(Clone)");
+        players[0] = GameObject.Find("Player 1");
+        players[1] = GameObject.Find("Player 2");
 
         if (players.Length == 2)
         {
-            StartGame();
+            StartGames();
         }
     }
 
-    private void StartGame()
+    private void StartGames()
     {
         players[0].transform.position = new Vector3(14.52f, 0.37f,-15.52f);
-        players[0].tag = "Player1";
         players[1].transform.position = new Vector3(-14.52f, 0.37f, 15.15f);
-        players[1].tag = "Player2";
     }
 }
