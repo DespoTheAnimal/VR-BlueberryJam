@@ -55,7 +55,7 @@ public class FPIShooter : MonoBehaviour
         }
         else if (current_ammo <= 0 && reloadTimer == reloadTime)
         {
-            Reload(); // Implement voice recognition reload function
+            //Reload(); // Implement voice recognition reload function
         }
     }
 

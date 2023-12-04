@@ -4958,6 +4958,7 @@ MonoBehaviour:
   audioSource: {fileID: 7469757800537315328}
   uiCanvas: {fileID: 3599152343738903001}
   ammoDisplay: {fileID: 933962229044553754}
+  emptyGunSound: {fileID: 8300000, guid: 36094a5560979e74985da5933ba6ef1a, type: 3}
   intensity: 0.7
   duration: 0.15
 --- !u!82 &7469757800537315328

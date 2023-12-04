@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 6614699019492809914}
-  clip: {fileID: 8300000, guid: bec0319f65c67410e81b3225c3ae72d4, type: 3}
+  clip: {fileID: 8300000, guid: b6bfa6ee89d18224fa4ed29f5b7de838, type: 3}
 --- !u!82 &6614699019492809914
 AudioSource:
   m_ObjectHideFlags: 0
