@@ -24,6 +24,6 @@ public class BulletGoUnalive : MonoBehaviour
     }
 
     public void PlayerHit(GameObject other, Vector3 spawn) {
-        other.GetComponent<NetworkTransform>().Teleport(spawn, transform.rotation, transform.localScale);
+        other.GetComponent<clientNetworkTransform>().Teleport(spawn, transform.rotation, transform.localScale);
     }
 }
