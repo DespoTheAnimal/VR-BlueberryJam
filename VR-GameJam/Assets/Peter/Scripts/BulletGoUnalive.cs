@@ -44,7 +44,7 @@ public class BulletGoUnalive : NetworkBehaviour
                     {
                         TeleportPlayer(xrOrigin, spawnPosition);
                     }*/
-                    happened.transform.position = spawnPosition;
+                    TeleportPlayer(happened,spawnPosition);
                     break;
                 }
             }
@@ -61,14 +61,14 @@ public class BulletGoUnalive : NetworkBehaviour
                 XROrigin xrOrigin = networkObject.GetComponent<XROrigin>();
                 if (xrOrigin != null)                    
                 {
-                    TeleportPlayer(xrOrigin, spawnPosition);
+                    TeleportPlayer(happened, spawnPosition);
                 }
                 break;
             }
         }
     }
 
-    private void TeleportPlayer(XROrigin xrOrigin, Vector3 newPosition)
+    private void TeleportPlayer(GameObject xrOrigin, Vector3 newPosition)
     {
         // Adjust the position of the XR Origin
         xrOrigin.transform.position = newPosition;
