@@ -69,8 +69,8 @@ public class GameManagement : NetworkBehaviour
         }
     }
 
-    [ClientRpc]
-    public void IncreasePlayer1KillsClientRpc()
+    [ServerRpc]
+    public void IncreasePlayer1KillsServerRpc()
     {
         player1Kills.Value++;
     }
