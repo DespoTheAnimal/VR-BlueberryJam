@@ -1,48 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode.Components;
 using Unity.Netcode;
+using UnityEngine.XR.Interaction.Toolkit; // Make sure you have this namespace if you're using XR Interaction Toolkit
+using Unity.XR.CoreUtils;
 
 public class BulletGoUnalive : NetworkBehaviour
 {
-    private Vector3 SpawnPosP1 = new Vector3(14.52f,0.37f,-15.52f);
-    private Vector3 SpawnPosP2 = new Vector3(-14.56f,0.37f,15.15f);
-
-    GameObject happened; 
-    public void OnTriggerEnter(Collider other) 
-    {
-        if(other.gameObject.tag == "SafeZone"){
-            Destroy(this.gameObject);
+    private Vector3 SpawnPosP1 = new Vector3(140.52f, 1.37f, -150.52f);
+    private Vector3 SpawnPosP2 = new Vector3(-14.56f, 0.37f, 15.15f);
+    GameObject happened;
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Player1"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer1KillsServerRpc();
+                happened = other.gameObject;
+                ulong playerNetworkObjectId1 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                PlayerHitServerRpc(playerNetworkObjectId1, SpawnPosP1);
+            }
+            else if (other.gameObject.CompareTag("Player2"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer2KillsServerRpc();
+                happened = other.gameObject;
+                ulong playerNetworkObjectId2 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                PlayerHitServerRpc(playerNetworkObjectId2, SpawnPosP2);
+            }
         }
-        if (other.gameObject.tag == "Player1")
+
+    [ServerRpc(RequireOwnership = false)]
+    private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
+    {
+        if (IsServer)
         {
-            //PlayerHitServerRPC(other.gameObject.transform.parent.gameObject, SpawnPosP1);
-            //other.gameObject.transform.position = PlayerHitServerRPC(SpawnPosP1);
-            happened = other.gameObject;
-            PlayerHitServerRPC(happened.tag);
-            
-            
-            GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().player1Kills++;
-        } else if (other.gameObject.tag == "Player2")
-        {
-            //PlayerHitServerRPC(SpawnPosP2);
-            happened = other.gameObject;
-            PlayerHitServerRPC(happened.tag);
-            GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().player2Kills++;
+            foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
+            {
+                if (networkObject.NetworkObjectId == playerNetworkObjectId)
+                {
+                    /*XROrigin xrOrigin = networkObject.GetComponent<XROrigin>();
+                    if (xrOrigin != null)
+                    {
+                        TeleportPlayer(xrOrigin, spawnPosition);
+                    }*/
+                    happened.transform.position = spawnPosition;
+                    break;
+                }
+            }
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void PlayerHitServerRPC(string spawn) {
-        //other.GetComponent<clientNetworkTransform>().Teleport(spawn, transform.rotation, transform.localScale);
-        if (spawn == "Player1")
+    [ClientRpc]
+    private void PlayerHitClientRPC(ulong playerNetworkObjectId, Vector3 spawnPosition)
+    {
+        foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
         {
-            happened.transform.position = SpawnPosP1;
+            if (networkObject.NetworkObjectId == playerNetworkObjectId)
+            {
+                XROrigin xrOrigin = networkObject.GetComponent<XROrigin>();
+                if (xrOrigin != null)                    
+                {
+                    TeleportPlayer(xrOrigin, spawnPosition);
+                }
+                break;
+            }
         }
-        else if (spawn == "Player2")
-        {
-            happened.transform.position = SpawnPosP2;
-        }
+    }
+
+    private void TeleportPlayer(XROrigin xrOrigin, Vector3 newPosition)
+    {
+        // Adjust the position of the XR Origin
+        xrOrigin.transform.position = newPosition;
+        Debug.Log("XR Origin teleported to: " + newPosition);
     }
 }

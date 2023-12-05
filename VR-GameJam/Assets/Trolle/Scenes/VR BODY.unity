@@ -4664,6 +4664,7 @@ GameObject:
   - component: {fileID: 218976950}
   - component: {fileID: 218976952}
   - component: {fileID: 218976951}
+  - component: {fileID: 218976953}
   m_Layer: 5
   m_Name: Player1Kills
   m_TagString: Untagged
@@ -4730,6 +4731,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218976949}
   m_CullTransparentMesh: 1
+--- !u!114 &218976953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218976949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2304314857
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &222244823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27424,6 +27445,7 @@ GameObject:
   - component: {fileID: 1797237841}
   - component: {fileID: 1797237843}
   - component: {fileID: 1797237842}
+  - component: {fileID: 1797237844}
   m_Layer: 5
   m_Name: Player2Kills
   m_TagString: Untagged
@@ -27490,6 +27512,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797237840}
   m_CullTransparentMesh: 1
+--- !u!114 &1797237844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797237840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2475355204
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &1798831198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31936,6 +31978,7 @@ GameObject:
   - component: {fileID: 2111585360}
   - component: {fileID: 2111585359}
   - component: {fileID: 2111585361}
+  - component: {fileID: 2111585362}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -31955,11 +31998,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523cccfef2c304770b7fbaf4ea4fd575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Kills:
+    m_InternalValue: 0
+  player2Kills:
+    m_InternalValue: 0
   audioSource: {fileID: 2111585361}
-  player1Kills: 0
-  player2Kills: 0
-  p1Kills: {fileID: 1486479325}
-  p2Kills: {fileID: 984847500}
+  p1KillsText: {fileID: 1486479325}
+  p2KillsText: {fileID: 984847500}
   Flag: {fileID: 5600015082725247173}
   winner: {fileID: 1462089690}
   winnerPanel: {fileID: 1462089688}
@@ -32074,6 +32119,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2111585362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111585358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3279813223
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!4 &2113610485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4778421301844072, guid: 44bcc73259db3f74aab6907bbcdc2884, type: 3}
