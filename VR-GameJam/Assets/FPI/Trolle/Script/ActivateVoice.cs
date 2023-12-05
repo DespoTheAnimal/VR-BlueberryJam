@@ -30,17 +30,4 @@ public class ActivateVoice : MonoBehaviour
             wit.Activate();
         }
     }
-   /* public void OnReloadCommandRecognized()
-    {
-        // Call the reload method on the FPIShooter script
-        if (shooter != null)
-        {
-            shooter.Reload();
-        }
-        else
-        {
-            Debug.Log("Shooter script not found");
-        }
-    }*/
-
 }

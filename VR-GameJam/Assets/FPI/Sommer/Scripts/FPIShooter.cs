@@ -111,45 +111,42 @@ public class FPIShooter : MonoBehaviour
 
 
 
-    public void Reload(string[] strings)
+    public IEnumerator Reload(string[] strings)
     {
-
-        /*if (wit != null)
-        {
-            wit.Activate();
-            
-        }
-        else
-        {
-            Debug.Log("Wit script not found");
-        }*/
         if (strings[0] == "Reload")
         {
             Debug.Log("Reloading...");
-
-            /*if (current_ammo <= 0 && reloadTimer == reloadTime)
-            {
-                audioSource.PlayOneShot(rifleReloadSound); // Start reload sound
-                reloadTimer -= Time.deltaTime; // Start counting down the timer
-            }
-            else if (reloadTimer < reloadTime && reloadTimer > 0)
-            {
-                reloadTimer -= Time.deltaTime; // Continue counting down the timer
-            }
-            else if (reloadTimer <= 0)
-            {
-                current_ammo = max_ammo; // Reset ammo to max
-                reloadTimer = reloadTime; // Reset the reload timer for the next reload
-                UpdateAmmoDisplay(); // Update the display after reloading
-            }*/
             audioSource.PlayOneShot(rifleReloadSound);
-            new WaitForSeconds(3);
+
+            // Wait for 3 seconds
+            yield return new WaitForSeconds(3);
+
             current_ammo = max_ammo; // Reset ammo to max
             UpdateAmmoDisplay();
             wit.Deactivate();
-
         }
     }
+    public void ReloadwithVoice(string[] strings)
+    {
+        if (strings[0] == "Reload")
+        {
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+    public IEnumerator ReloadCoroutine()
+    {
+        Debug.Log("Reloading...");
+        audioSource.PlayOneShot(rifleReloadSound);
+
+        // Wait for 3 seconds
+        yield return new WaitForSeconds(3);
+
+        current_ammo = max_ammo; // Reset ammo to max
+        UpdateAmmoDisplay();
+        wit.Deactivate();
+    }
+        
+
 
     private void UpdateAmmoDisplay()
     {
