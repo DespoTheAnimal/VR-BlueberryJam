@@ -37,7 +37,7 @@ public class PlayerNetting : NetworkBehaviour
             root.position = VRrigReference.Singleton.root.position;
             root.rotation = VRrigReference.Singleton.root.rotation;
 
-            head.position = VRrigReference.Singleton.head.position;
+            head.position = VRrigReference.Singleton.head.position + new Vector3(0,0.5f,0);
             head.rotation = VRrigReference.Singleton.head.rotation;
 
             leftHand.position = VRrigReference.Singleton.leftHand.position;
