@@ -10,20 +10,19 @@ public class BulletGoUnalive : NetworkBehaviour
     private Vector3 SpawnPosP1 = new Vector3(140.52f, 1.37f, -150.52f);
     private Vector3 SpawnPosP2 = new Vector3(-14.56f, 0.37f, 15.15f);
 
-    public void OnTriggerEnter(Collider other)
-    {
-        // Rest of your code...
-
-        if (other.gameObject.CompareTag("Player1"))
+        public void OnTriggerEnter(Collider other)
         {
-            // Get the XR Origin component from the player
-            XROrigin playerXROrigin = other.gameObject.GetComponentInParent<XROrigin>();
-            ulong playerNetworkObjectId = playerXROrigin.GetComponent<NetworkObject>().NetworkObjectId;
-            PlayerHitServerRpc(playerNetworkObjectId, SpawnPosP1);
-            // Rest of your code...
+            if (other.gameObject.CompareTag("Player1"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer1KillsServerRpc();
+            }
+            else if (other.gameObject.CompareTag("Player2"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer2KillsServerRpc();
+            }
         }
-        // Similar handling for Player2
-    }
 
     [ServerRpc(RequireOwnership = false)]
     private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
