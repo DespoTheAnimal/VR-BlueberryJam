@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.Netcode;
 using TMPro;
+using System;
+using Meta.WitAi;
+
+
 
 public class FPIShooter : MonoBehaviour
 {
@@ -16,6 +20,7 @@ public class FPIShooter : MonoBehaviour
 
     [SerializeField] private GameObject uiCanvas; // Reference to the UI Canvas
     [SerializeField] private TextMeshProUGUI ammoDisplay; // Reference to the TextMeshPro GUI element
+    [SerializeField] private Wit wit;
 
     private int max_ammo = 30, current_ammo = 30;
     private float reloadTime = 3, reloadTimer = 3;
@@ -27,6 +32,8 @@ public class FPIShooter : MonoBehaviour
     private XRBaseController currentController;
 
     public AudioClip emptyGunSound; // Sound to play when the gun is empty
+
+    public event Action OnMagazineEmpty;
 
 
 
@@ -56,6 +63,13 @@ public class FPIShooter : MonoBehaviour
         else if (current_ammo <= 0 && reloadTimer == reloadTime)
         {
             //Reload(); // Implement voice recognition reload function
+        }
+
+        if (current_ammo <= 0)
+        {
+            //OnMagazineEmpty?.Invoke();
+            if (wit.Active == false)
+                wit.Activate();
         }
     }
 
@@ -95,23 +109,45 @@ public class FPIShooter : MonoBehaviour
         audioSource.PlayOneShot(rifleShootingSound);
     }
 
-    private void Reload()
+
+
+    public void Reload(string[] strings)
     {
-        // Check if reloading needs to start
-        if (current_ammo <= 0 && reloadTimer == reloadTime)
+
+        /*if (wit != null)
         {
-            audioSource.PlayOneShot(rifleReloadSound); // Start reload sound
-            reloadTimer -= Time.deltaTime; // Start counting down the timer
+            wit.Activate();
+            
         }
-        else if (reloadTimer < reloadTime && reloadTimer > 0)
+        else
         {
-            reloadTimer -= Time.deltaTime; // Continue counting down the timer
-        }
-        else if (reloadTimer <= 0)
+            Debug.Log("Wit script not found");
+        }*/
+        if (strings[0] == "Reload")
         {
+            Debug.Log("Reloading...");
+
+            /*if (current_ammo <= 0 && reloadTimer == reloadTime)
+            {
+                audioSource.PlayOneShot(rifleReloadSound); // Start reload sound
+                reloadTimer -= Time.deltaTime; // Start counting down the timer
+            }
+            else if (reloadTimer < reloadTime && reloadTimer > 0)
+            {
+                reloadTimer -= Time.deltaTime; // Continue counting down the timer
+            }
+            else if (reloadTimer <= 0)
+            {
+                current_ammo = max_ammo; // Reset ammo to max
+                reloadTimer = reloadTime; // Reset the reload timer for the next reload
+                UpdateAmmoDisplay(); // Update the display after reloading
+            }*/
+            audioSource.PlayOneShot(rifleReloadSound);
+            new WaitForSeconds(3);
             current_ammo = max_ammo; // Reset ammo to max
-            reloadTimer = reloadTime; // Reset the reload timer for the next reload
-            UpdateAmmoDisplay(); // Update the display after reloading
+            UpdateAmmoDisplay();
+            wit.Deactivate();
+
         }
     }
 
