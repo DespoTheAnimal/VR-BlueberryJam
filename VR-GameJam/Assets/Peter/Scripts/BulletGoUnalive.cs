@@ -15,12 +15,16 @@ public class BulletGoUnalive : NetworkBehaviour
             if (other.gameObject.CompareTag("Player1"))
             {
                 // Assuming this script is on the server
-                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer1KillsServerRpc();
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer1KillsClientRpc();
+                ulong playerNetworkObjectId1 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                PlayerHitClientRPC(playerNetworkObjectId1, SpawnPosP1);
             }
             else if (other.gameObject.CompareTag("Player2"))
             {
                 // Assuming this script is on the server
                 GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer2KillsServerRpc();
+                ulong playerNetworkObjectId2 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                PlayerHitServerRpc(playerNetworkObjectId2, SpawnPosP2);
             }
         }
 
@@ -40,6 +44,23 @@ public class BulletGoUnalive : NetworkBehaviour
                     }
                     break;
                 }
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void PlayerHitClientRPC(ulong playerNetworkObjectId, Vector3 spawnPosition)
+    {
+        foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
+        {
+            if (networkObject.NetworkObjectId == playerNetworkObjectId)
+            {
+                XROrigin xrOrigin = networkObject.GetComponent<XROrigin>();
+                if (xrOrigin != null)                    
+                {
+                    TeleportPlayer(xrOrigin, spawnPosition);
+                }
+                break;
             }
         }
     }
