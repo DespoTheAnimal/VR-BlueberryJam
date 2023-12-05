@@ -1,56 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Netcode.Components;
 using Unity.Netcode;
+using UnityEngine.XR.Interaction.Toolkit; // Make sure you have this namespace if you're using XR Interaction Toolkit
+using Unity.XR.CoreUtils;
 
 public class BulletGoUnalive : NetworkBehaviour
 {
-    private Vector3 SpawnPosP1 = new Vector3(140.52f,1.37f,-150.52f);
-    private Vector3 SpawnPosP2 = new Vector3(-14.56f,0.37f,15.15f);
+    private Vector3 SpawnPosP1 = new Vector3(140.52f, 1.37f, -150.52f);
+    private Vector3 SpawnPosP2 = new Vector3(-14.56f, 0.37f, 15.15f);
 
-    GameObject happened; 
-    public void OnTriggerEnter(Collider other) 
+    public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "SafeZone"){
-            Destroy(this.gameObject);
-        }
-        if (other.gameObject.tag == "Player1")
+        // Rest of your code...
+
+        if (other.gameObject.CompareTag("Player1"))
         {
-            //PlayerHitServerRPC(other.gameObject.transform.parent.gameObject, SpawnPosP1);
-            //other.gameObject.transform.position = PlayerHitServerRPC(SpawnPosP1);
-            //happened = other.gameObject;
-            ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
-            PlayerHitServerRPC(playerNetworkObjectId, SpawnPosP1);
-            
-            
-            GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().player1Kills++;
-        } else if (other.gameObject.tag == "Player2")
-        {
-            //PlayerHitServerRPC(SpawnPosP2);
-            //happened = other.gameObject;
-            ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
-            PlayerHitServerRPC(playerNetworkObjectId, SpawnPosP2);
-            GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().player2Kills++;
+            // Get the XR Origin component from the player
+            XROrigin playerXROrigin = other.gameObject.GetComponentInParent<XROrigin>();
+            ulong playerNetworkObjectId = playerXROrigin.GetComponent<NetworkObject>().NetworkObjectId;
+            PlayerHitServerRpc(playerNetworkObjectId, SpawnPosP1);
+            // Rest of your code...
         }
+        // Similar handling for Player2
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void PlayerHitServerRPC(ulong playerNetworkObjectId, Vector3 spawnPosition) {
-        //other.GetComponent<clientNetworkTransform>().Teleport(spawn, transform.rotation, transform.localScale);
-        foreach (var networkObjects in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
+    private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
+    {
+        if (IsServer)
         {
-            if (networkObjects.NetworkObjectId == playerNetworkObjectId)
+            foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
             {
-                networkObjects.GetComponent<NetworkTransform>().Teleport(spawnPosition, Quaternion.identity, Vector3.one);
-                Debug.Log("virker det her?");
-                break;
+                if (networkObject.NetworkObjectId == playerNetworkObjectId)
+                {
+                    XROrigin xrOrigin = networkObject.GetComponent<XROrigin>();
+                    if (xrOrigin != null)
+                    {
+                        TeleportPlayer(xrOrigin, spawnPosition);
+                    }
+                    break;
+                }
             }
         }
-        /*NetworkObject playerNetworkObject = NetworkManager.Singleton.SpawnManager.GetNetworkObject(playerNetworkObjectId);
-        if (playerNetworkObject != null)
-        {
-            playerNetworkObject.GetComponent<NetworkTransform>().Teleport(spawnPosition, Quaternion.identity, Vector3.one);
-        }*/
+    }
+
+    private void TeleportPlayer(XROrigin xrOrigin, Vector3 newPosition)
+    {
+        // Adjust the position of the XR Origin
+        xrOrigin.transform.position = newPosition;
+        Debug.Log("XR Origin teleported to: " + newPosition);
     }
 }
