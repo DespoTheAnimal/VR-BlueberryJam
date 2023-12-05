@@ -8,7 +8,7 @@ public class SpawningNPC : MonoBehaviour
     [SerializeField] private GameObject[] npcs;
     [SerializeField] private GameObject container;
     private Vector3 spawnPos;
-    private int amount = 25;
+    private int amount = 1;
 
     private List<Vector3> spawnedPositions = new List<Vector3>();
     // Start is called before the first frame update
