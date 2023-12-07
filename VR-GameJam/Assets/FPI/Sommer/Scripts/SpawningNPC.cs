@@ -8,7 +8,7 @@ public class SpawningNPC : MonoBehaviour
     [SerializeField] private GameObject[] npcs;
     [SerializeField] private GameObject container;
     private Vector3 spawnPos;
-    private int amount = 1;
+    private int amount = 10;
 
     private List<Vector3> spawnedPositions = new List<Vector3>();
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class SpawningNPC : MonoBehaviour
                 {
                     float randomX = Random.Range(item.bounds.min.x, item.bounds.max.x);
                     float randomZ = Random.Range(item.bounds.min.z, item.bounds.max.z);
-                    spawnPos = new Vector3(randomX, 1, randomZ); // Assuming 12.3f is the y-position for NPCs to be on the floor
+                    spawnPos = new Vector3(randomX, -0.1f, randomZ); // Assuming 12.3f is the y-position for NPCs to be on the floor
 
                     if (IsPositionFree(spawnPos))
                     {
