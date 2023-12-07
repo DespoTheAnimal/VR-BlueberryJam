@@ -15,7 +15,7 @@ public class FPIShooter : MonoBehaviour
     public GameObject bullet;
     public Transform spawnPosition;
     public AudioClip rifleReloadSound; // Reload sound clip
-    public AudioClip rifleShootingSound; // Shooting sound clip
+    public AudioClip rifleShootingSound, slowMo, boost, returnToMonke; // Shooting sound clip
     public AudioSource audioSource; // Audio source component
 
     [SerializeField] private GameObject uiCanvas; // Reference to the UI Canvas
@@ -139,18 +139,21 @@ public class FPIShooter : MonoBehaviour
         {
             Time.timeScale = 0.5f;
             Debug.Log("Testslow");
+            audioSource.PlayOneShot(slowMo);
             wit.Deactivate();
         }
         else if (strings[0] == "Fast")
         {
             Time.timeScale = 1.5f;
             Debug.Log("Testspeed");
+            audioSource.PlayOneShot(boost);
             wit.Deactivate();
         }
         else if (strings[0] == "Normal")
         {
             Time.timeScale = 1f;
             Debug.Log("Testnormal");
+            audioSource.PlayOneShot(returnToMonke);
             wit.Deactivate();
         }
     }

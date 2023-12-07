@@ -917,6 +917,9 @@ MonoBehaviour:
   spawnPosition: {fileID: 1593897885804719835}
   rifleReloadSound: {fileID: 8300000, guid: f62cbf89246239348be2dadc2826c8ac, type: 3}
   rifleShootingSound: {fileID: 8300000, guid: 568d4b2d098a9484db51508fb931afd9, type: 3}
+  slowMo: {fileID: 8300000, guid: 24de03aa1acc441f8a1613f2be7a9a61, type: 3}
+  boost: {fileID: 8300000, guid: d5a38c4c4f36a431981e385e6608561d, type: 3}
+  returnToMonke: {fileID: 8300000, guid: 3ea60b8ce6e0948a2bbe7878d66f21b2, type: 3}
   audioSource: {fileID: 4240366296635585797}
   uiCanvas: {fileID: 3164669033567553213}
   ammoDisplay: {fileID: 7025077054494324167}
