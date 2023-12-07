@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1730035, g: 0.21621539, b: 0.29820034, a: 1}
+  m_IndirectSpecularColor: {r: 0.17300345, g: 0.21621521, b: 0.29820022, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33154,7 +33154,7 @@ PrefabInstance:
     - target: {fileID: 3928712298045565951, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
       propertyPath: NetworkConfig.PlayerPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1412074756345145470, guid: e90c3515e946148aa868d37a8c43147a, type: 3}
     - target: {fileID: 3928712298045565951, guid: edafc8c923d4a4403ac118158f8de1b5, type: 3}
       propertyPath: NetworkConfig.ConnectionApproval
       value: 0
