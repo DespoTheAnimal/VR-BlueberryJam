@@ -27,6 +27,7 @@ public class XmasTree : NetworkBehaviour
         if(score.Value == 1){
             startTree.SetActive(false);
             startTree.SetActive(true);
+            Debug.Log("Tree should be swapped");
         }
     }
 
