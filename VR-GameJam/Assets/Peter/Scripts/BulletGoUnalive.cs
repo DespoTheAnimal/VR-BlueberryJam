@@ -27,7 +27,7 @@ public class BulletGoUnalive : NetworkBehaviour
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
             happened = other.gameObject;
-            player = GameObject.FindWithTag("Player3");
+            player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
             player.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
@@ -37,7 +37,7 @@ public class BulletGoUnalive : NetworkBehaviour
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
             happened = other.gameObject;
-            player = GameObject.FindWithTag("Player4");
+            player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
             player.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;

@@ -10,7 +10,7 @@ public class PlayerNetting : NetworkBehaviour
     [SerializeField] private Transform leftHand;
     [SerializeField] private Transform rightHand;
     //[SerializeField] private Transform body;
-    private GameObject xRorigin;
+    public GameObject xRorigin;
 
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
@@ -22,13 +22,13 @@ public class PlayerNetting : NetworkBehaviour
             VRrigReference.Singleton.SetNetworkPlayer(this);
             gameObject.tag = "Player1";
             xRorigin = GameObject.Find("Player");
-            xRorigin.tag = "Player3";
+            //xRorigin.tag = "Player3";
         }
         else
         {
             gameObject.tag = "Player2";
             xRorigin = GameObject.Find("Player");
-            xRorigin.tag = "Player4";
+            //xRorigin.tag = "Player4";
         }
 
         score.OnValueChanged += ScoreChanged;
