@@ -9,13 +9,21 @@ public class NPCBehaviour : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private Transform player;
     private float moveSpeed = 2.0f, directionChangeInterval = 2.0f, direction = 1, timer, respawnTimer = 10f;
-    private bool isAlive = false;
+    private bool isAlive = false, isMoving = true;
     private Animator anim;
 
-    [SerializeField] private FPIGameManager gameManager;
+    private GameObject objectManager;
+    private FPIGameManager gameManager;
 
+
+
+    void Awake(){
+        
+    }
     void Start()
     {
+        objectManager = GameObject.Find("GameManager");
+        gameManager = objectManager.GetComponent<FPIGameManager>();
 
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -38,10 +46,18 @@ public class NPCBehaviour : MonoBehaviour
         Respawn();
     }
 
+    public void StopNPCs(){
+        isMoving = false;
+    }
+
+    public void StartNPCs(){
+        isMoving = true;
+    }
+
     void LookAtPlayer()
     {
         // Check if the player is not null
-        if (player != null && isAlive)
+        if (player != null && isAlive && isMoving)
         {
             // Calculate the direction from the NPC to the player
             Vector3 direction = player.transform.position - transform.position;
@@ -88,7 +104,7 @@ public class NPCBehaviour : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Bullet") && isAlive){
             isAlive = false;
@@ -98,6 +114,9 @@ public class NPCBehaviour : MonoBehaviour
         if(collision.gameObject.CompareTag("Bullet")){
             audioSource.clip = clip;
             audioSource.Play();
+        }
+        if (collision.gameObject.CompareTag("Wall")){
+            direction *= -1;
         }
     }
 }
