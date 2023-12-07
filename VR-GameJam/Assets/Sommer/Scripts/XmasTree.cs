@@ -27,7 +27,7 @@ public class XmasTree : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score.Value == 3){
+        if(score.Value == 13){
             startTree.SetActive(false);
             endTree.SetActive(true);
             Debug.Log("Tree should be swapped");
