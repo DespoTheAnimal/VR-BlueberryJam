@@ -40,8 +40,6 @@ public class BulletGoUnalive : NetworkBehaviour
     }
 
     // Rest of your existing methods...
-}
-
 
 [ServerRpc(RequireOwnership = false)]
     private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
