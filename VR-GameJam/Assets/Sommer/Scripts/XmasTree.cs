@@ -35,7 +35,7 @@ public class XmasTree : NetworkBehaviour
         if(col.gameObject.CompareTag("Present")){
             //Increment a coop score (network variable)
             IncrementScore();
-            col.gameObject.tag("Untagged");
+            col.gameObject.tag = "Untagged";
         }
     }
 
