@@ -50,5 +50,24 @@ public class VoiceActivationSlowMotion : MonoBehaviour
             }
         }
     }
+
+    private void StartSpeedramp(string[] input)
+    {
+        float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
+        Debug.Log(loudness);
+        if (input[0] == "speed" && loudness > threshold)
+        {
+            Time.timeScale = 1.5f;
+            Debug.Log("Testspeed");
+            wit.Deactivate();
+        }
+        else if (input[0] == "slow" && loudness > threshold)
+        {
+            Time.timeScale = 0.5f;
+            Debug.Log("Testslow");
+            wit.Deactivate();
+        }
+    }
 }
+
 
