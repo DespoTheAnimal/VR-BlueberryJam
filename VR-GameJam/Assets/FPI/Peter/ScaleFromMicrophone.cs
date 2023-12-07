@@ -20,6 +20,7 @@ public class ScaleFromMicrophone : MonoBehaviour
     void Update()
     {
         float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
+        Debug.Log("VOlume: " + loudness);
 
         if (loudness > threshold)
         {
@@ -31,5 +32,6 @@ public class ScaleFromMicrophone : MonoBehaviour
             Time.timeScale = 1;
             Debug.Log("normalspeed");
         }
+            transform.localScale = Vector3.Lerp(minScale, maxScale, loudness);
     }
 }

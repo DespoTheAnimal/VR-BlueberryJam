@@ -14,15 +14,14 @@ public class VoiceActivationSlowMotion : MonoBehaviour
     public float threshold = 2.5f;
     [SerializeField] private InputActionProperty actVoice;
 
-    void Update()
+    void Start()
     {
-        // Replace with your specific input for the B button
-
-
-        if (actVoice.action.WasPerformedThisFrame())
+        actVoice.action.performed += startVoice;
+        /*if (actVoice.action.WasPerformedThisFrame())
         {
+            Debug.Log("Voice");
             wit.Activate();
-        }
+        }*/
     }
 
     private void OnEnable()
@@ -35,31 +34,41 @@ public class VoiceActivationSlowMotion : MonoBehaviour
         //wit.events.onResponse.RemoveListener(OnWitResponse);
     }
 
-/*     private void OnWitResponse(WitResponseNode response)
+    private void startVoice(InputAction.CallbackContext ctx)
     {
-        float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
-        Debug.Log(loudness);
+        Debug.Log("test1");
+        if(wit.Active == false)
+        {
+            wit.Activate();
+            Debug.Log("test2");
+        }
+
+        
+    }
+
+
+
+     public void OnWitResponse(WitResponseNode response)
+    {
         if (response != null)
         {
             string text = response["text"].Value.ToLower();
-            if (text.Contains("speed") && loudness > threshold)
+            if (text.Contains("speed"))
             {
-                Time.timeScale = 1.5f;
-                Debug.Log("Testspeed");
+                //StartSpeedramp(text);
             }
-            else if (text.Contains("slow") && loudness > threshold)
+            else if (text.Contains("slow"))
             {
-                Time.timeScale = 0.5f;
-                Debug.Log("Testslow");
+
             }
         }
-    } */
+    } 
 
-    private void StartSpeedramp(string[] input)
+    public void StartSpeedramp(string[] input)
     {
         float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
         Debug.Log(loudness);
-        if (input[0] == "speed" && loudness > threshold)
+        if (input[0] == "Speed" && loudness > threshold)
         {
             Time.timeScale = 1.5f;
             Debug.Log("Testspeed");

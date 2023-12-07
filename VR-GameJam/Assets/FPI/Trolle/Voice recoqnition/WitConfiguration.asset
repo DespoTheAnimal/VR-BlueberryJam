@@ -20,9 +20,9 @@ MonoBehaviour:
     isPrivate: 1
     createdAt: 2023-12-05T02:09:50-0800
     trainingStatus: 1
-    lastTrainDuration: 60
-    lastTrainedAt: 2023-12-05T02:52:43-0800
-    nextTrainAt: 2023-12-05T02:51:43-0800
+    lastTrainDuration: 52
+    lastTrainedAt: 2023-12-07T01:43:56-0800
+    nextTrainAt: 2023-12-07T01:43:04-0800
     intents:
     - id: 730582382386237
       name: ReloadGun
@@ -69,12 +69,19 @@ MonoBehaviour:
       keywords:
       - keyword: Slow Motion
         synonyms:
+        - slow
         - slow motion
         - slower
         - slowmo
       - keyword: Slow down
         synonyms:
         - slow down
+      - keyword: slow
+        synonyms:
+        - slow
+      - keyword: speed
+        synonyms:
+        - speed
     traits: []
     versionTags: []
     voices:

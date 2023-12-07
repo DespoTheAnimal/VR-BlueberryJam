@@ -443,6 +443,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ActivateVoice",
+                    "type": "Button",
+                    "id": "154928e1-8908-4c30-af8f-ba2f190b682d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -674,6 +683,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Grip Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93770e7f-36ea-4129-83c7-4c50486e7fa5",
+                    "path": "<XRController>{LeftHand}/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "ActivateVoice",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1577,15 +1597,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "ActivateVoice",
-                    "type": "Button",
-                    "id": "ba6e2542-99c2-4b7e-ae5f-acd1059c7277",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1751,17 +1762,6 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "Generic XR Controller",
                     "action": "Scale Delta",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ad3215e8-0a62-4d71-a2cd-0354349bc72b",
-                    "path": "<XRController>{RightHand}/{PrimaryAction}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ActivateVoice",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -126,11 +126,32 @@ public class FPIShooter : MonoBehaviour
             wit.Deactivate();
         }
     }
+
+
+
     public void ReloadwithVoice(string[] strings)
     {
         if (strings[0] == "Reload")
         {
             StartCoroutine(ReloadCoroutine());
+        }
+        else if (strings[0] == "Stop")
+        {
+            Time.timeScale = 0.5f;
+            Debug.Log("Testslow");
+            wit.Deactivate();
+        }
+        else if (strings[0] == "Fast")
+        {
+            Time.timeScale = 1.5f;
+            Debug.Log("Testspeed");
+            wit.Deactivate();
+        }
+        else if (strings[0] == "Normal")
+        {
+            Time.timeScale = 1f;
+            Debug.Log("Testnormal");
+            wit.Deactivate();
         }
     }
     public IEnumerator ReloadCoroutine()

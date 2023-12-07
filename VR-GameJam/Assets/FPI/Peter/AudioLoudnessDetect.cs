@@ -25,6 +25,9 @@ public class AudioLoudnessDetect : MonoBehaviour
 
         if (startPosition == 0) {
             return 0;
+        } else if (startPosition < 40)
+        {
+            startPosition = 40;
         }
 
         float[] waveData = new float[sampleWindow];
