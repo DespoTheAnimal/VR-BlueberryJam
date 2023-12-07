@@ -34,7 +34,7 @@ public class PlayerNetting : NetworkBehaviour
             //xRorigin.tag = "Player4";
         }
 
-        score.OnValueChanged += ScoreChanged;
+       // score.OnValueChanged += ScoreChanged;
     }
 
     // Update is called once per frame
