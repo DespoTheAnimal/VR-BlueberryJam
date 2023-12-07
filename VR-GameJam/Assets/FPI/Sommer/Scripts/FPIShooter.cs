@@ -36,6 +36,12 @@ public class FPIShooter : MonoBehaviour
     public event Action OnMagazineEmpty;
 
 
+    //LOUDNESS
+    /*public AudioLoudnessDetect detect;
+    public float loudnessSens = 100;
+    public float threshold = 2.5f;
+    float loudness;*/
+
 
     private void Start()
     {
@@ -53,6 +59,7 @@ public class FPIShooter : MonoBehaviour
 
     private void Update()
     {
+        //loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
         timeSinceLastShot += Time.deltaTime;
 
         if (isTriggerHeldDown && timeSinceLastShot >= shotCooldown)
@@ -169,7 +176,7 @@ public class FPIShooter : MonoBehaviour
         UpdateAmmoDisplay();
         wit.Deactivate();
     }
-        
+
 
 
     private void UpdateAmmoDisplay()
@@ -211,8 +218,10 @@ public class FPIShooter : MonoBehaviour
     }
 
 
-    public void TriggerHaptic(BaseInteractionEventArgs eventArgs){
-        if(eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor){
+    public void TriggerHaptic(BaseInteractionEventArgs eventArgs)
+    {
+        if (eventArgs.interactorObject is XRBaseControllerInteractor controllerInteractor)
+        {
             TriggerHaptic(controllerInteractor.xrController);
         }
     }
