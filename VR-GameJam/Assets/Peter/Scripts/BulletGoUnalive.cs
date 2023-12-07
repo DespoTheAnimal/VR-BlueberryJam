@@ -13,7 +13,7 @@ public class BulletGoUnalive : NetworkBehaviour
     GameObject happened;
 
     [SerializeField] private GameObject player;
-        public void OnTriggerEnter(Collider other)
+        public void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag("Player1"))
             {
