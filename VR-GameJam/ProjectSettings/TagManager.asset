@@ -14,6 +14,7 @@ TagManager:
   - Bullet
   - Player3
   - Player4
+  - Present
   layers:
   - Default
   - TransparentFX
