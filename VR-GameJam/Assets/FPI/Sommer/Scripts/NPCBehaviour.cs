@@ -7,34 +7,33 @@ public class NPCBehaviour : MonoBehaviour
 {
     private AudioSource audioSource;
     [SerializeField] private AudioClip clip;
-
     [SerializeField] private Transform player;
-
-    public float moveSpeed = 2.0f;
-    public float directionChangeInterval = 2.0f;
-
-    private float direction = 1; // 1 for right, -1 for left
-    private float timer;
-
+    private float moveSpeed = 2.0f, directionChangeInterval = 2.0f, direction = 1, timer, respawnTimer = 10f;
     private bool isAlive = false;
+    private Animator anim;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
 
+        anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+    
         GameObject playerObjectByName = GameObject.Find("Player");
+        
         if (playerObjectByName != null)
         {
             player = playerObjectByName.transform;
         }
         timer = directionChangeInterval;
         isAlive = true;
+        anim.SetBool("isAlive", true);
     }
 
     void Update()
     {
         LookAtPlayer();
         NPCMovement();
+        Respawn();
     }
 
     void LookAtPlayer()
@@ -75,13 +74,25 @@ public class NPCBehaviour : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void Respawn(){
+        if(!isAlive){
+            respawnTimer -= Time.deltaTime;
+        }
+        if(respawnTimer <= 1f){
+            anim.SetBool("isAlive", true);
+        }if(respawnTimer <= 0){
+            isAlive = true;
+            respawnTimer = 10f;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Bullet")){
+        if (collision.gameObject.CompareTag("Bullet") && isAlive){
             isAlive = false;
+            anim.SetBool("isAlive", false);
             audioSource.clip = clip;
             audioSource.Play();
-            transform.Rotate(0, 90, 0);
         }
     }
 }
