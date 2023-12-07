@@ -6,58 +6,30 @@ using Meta.WitAi.Json;
 
 public class SpeedControlByVoice : MonoBehaviour
 {
-   /* [SerializeField] private Wit wit;
-    public float lowPitchThreshold = 100f; // Threshold for low pitch (in Hz)
-    public float highPitchThreshold = 300f; // Threshold for high pitch (in Hz)
+    public float lowPitchThreshold = 100f; // Example threshold, adjust as needed
+    public float highPitchThreshold = 300f; // Example threshold, adjust as needed
 
-    private void Start()
+    public void AdjustSpeed(string command)
     {
-        wit.events.onResponse.AddListener(OnWitResponse);
-    }
+        float pitch = AnalyzePitch(); // Implement actual pitch detection here
 
-    private void OnWitResponse(WitResponseNode response)
-    {
-        if (response != null)
+        if (command.Contains("slowmotion") && pitch < lowPitchThreshold)
         {
-            string text = response["text"].Value;
-            if (text.ToLower().Contains("speed"))
-            {
-                float pitch = AnalyzePitch(); // You need to implement this method
-                AdjustGameSpeed(pitch);
-            }
+            Time.timeScale = 0.5f; // Slower speed for low pitch
+        }
+        else if (command.Contains("speed") && pitch > highPitchThreshold)
+        {
+            Time.timeScale = 2.0f; // Faster speed for high pitch
+        }
+        else
+        {
+            Time.timeScale = 1f; // Normal speed
         }
     }
 
     private float AnalyzePitch()
     {
-        // Implement pitch analysis logic here
-        // Return the pitch in Hertz
+        // Implement actual pitch detection logic
+        return 150f; // Placeholder value
     }
-
-    private void AdjustGameSpeed(float pitch)
-    {
-        if (pitch < lowPitchThreshold)
-        {
-            // Low pitch, slow down the game
-            Time.timeScale = 0.5f;
-        }
-        else if (pitch > highPitchThreshold)
-        {
-            // High pitch, speed up the game
-            Time.timeScale = 1.5f;
-        }
-        else
-        {
-            // Normal pitch, normal game speed
-            Time.timeScale = 1f;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (wit != null)
-        {
-            wit.events.onResponse.RemoveListener(OnWitResponse);
-        }
-    }*/
 }

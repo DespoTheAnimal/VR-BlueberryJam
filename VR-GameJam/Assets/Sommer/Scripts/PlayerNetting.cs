@@ -20,8 +20,10 @@ public class PlayerNetting : NetworkBehaviour
         if (IsOwner)
         {
             VRrigReference.Singleton.SetNetworkPlayer(this);
-            gameObject.tag = "Player1";
+            gameObject.transform.GetChild(0).tag = "Player1";
             xRorigin = GameObject.Find("Player");
+            xRorigin.GetComponent<CharacterController>().detectCollisions = false;
+            xRorigin.GetComponent<CharacterController>().attachedRigidbody.detectCollisions = false;  
             //xRorigin.tag = "Player3";
         }
         else

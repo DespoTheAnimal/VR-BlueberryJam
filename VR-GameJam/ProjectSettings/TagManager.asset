@@ -12,6 +12,8 @@ TagManager:
   - Player2
   - SafeZone
   - Bullet
+  - Player3
+  - Player4
   layers:
   - Default
   - TransparentFX

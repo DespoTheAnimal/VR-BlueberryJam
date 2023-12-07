@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1023,8 +1023,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629407857}
+  - component: {fileID: 1629407859}
+  - component: {fileID: 1629407858}
   m_Layer: 0
-  m_Name: ReloadHandler
+  m_Name: SpeedControllerHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1045,6 +1047,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1895546942}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629407858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629407856}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb7d9a6a74e8fe4f8e2aeb7c98f0d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1629407859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629407856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c23b6b9e71f5541aa4cfc9d2d5abcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowPitchThreshold: 100
+  highPitchThreshold: 300
 --- !u!1 &1770718376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1336,7 @@ GameObject:
   - component: {fileID: 1895546941}
   - component: {fileID: 1895546943}
   - component: {fileID: 1895546944}
+  - component: {fileID: 1895546945}
   m_Layer: 0
   m_Name: App Voice Experience
   m_TagString: Untagged
@@ -1554,6 +1583,18 @@ MonoBehaviour:
     customTranscriptionProvider: {fileID: 0}
     alwaysRecord: 0
     preferredActivationOffset: -0.5
+--- !u!114 &1895546945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895546940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb7d9a6a74e8fe4f8e2aeb7c98f0d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4769136655906502
 Transform:
   m_ObjectHideFlags: 0
