@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FPI/Sommer/SommerLaverFPI.unity
     guid: 7eab7d9409ddb46c4b5fcda8663452a1
+  - enabled: 0
+    path: Assets/FPI/Trolle/MikkelLaverDinMor.unity
+    guid: e09f32502c5b7094c897eff36adfadd5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0d7d452c861e3aa45ace798ca20d1bab, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a23370bc1d61e441a73915c677c90e3, type: 2}
