@@ -12,6 +12,8 @@ public class NPCBehaviour : MonoBehaviour
     private bool isAlive = false;
     private Animator anim;
 
+    [SerializeField] private FPIGameManager gameManager;
+
     void Start()
     {
 
@@ -91,6 +93,7 @@ public class NPCBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet") && isAlive){
             isAlive = false;
             anim.SetBool("isAlive", false);
+            gameManager.IncrementPlayerScore();
         }
         if(collision.gameObject.CompareTag("Bullet")){
             audioSource.clip = clip;
