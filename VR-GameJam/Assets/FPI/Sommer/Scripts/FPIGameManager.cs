@@ -19,7 +19,7 @@ public class FPIGameManager : MonoBehaviour
     }
     public void IncrementPlayerScore(){
         playerScore ++;
-        textPlayerScore.SetText(playerScore.ToString());
+        textPlayerScore.text = playerScore.ToString();
         Debug.Log(playerScore);
         audioSource.clip = clip;
         audioSource.Play();
