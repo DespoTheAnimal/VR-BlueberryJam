@@ -34,6 +34,7 @@ public class BulletGoUnalive : NetworkBehaviour
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
             // PlayerHitServerRpc logic here
+            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);
         }
         if (other.gameObject.CompareTag("Player2")){
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
@@ -57,7 +58,7 @@ public class BulletGoUnalive : NetworkBehaviour
 [ServerRpc(RequireOwnership = false)]
     private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
     {
-        if (IsServer)
+/*         if (IsServer)
         {
             foreach (var networkObject in NetworkManager.Singleton.SpawnManager.SpawnedObjectsList)
             {
@@ -67,11 +68,22 @@ public class BulletGoUnalive : NetworkBehaviour
                     if (xrOrigin != null)
                     {
                         TeleportPlayer(xrOrigin, spawnPosition);
-                    }*/
+                    }
                     TeleportPlayer(Happened2,spawnPosition);
                     break;
                 }
             }
+        } */
+        if (IsServer)
+        {
+            // Use Happened2 or player based on the playerNetworkObjectId
+            GameObject playerObject = (playerNetworkObjectId == happened1.GetComponent<NetworkObject>().NetworkObjectId) ? happened1 : Happened2;
+
+            // Teleport the correct player
+            TeleportPlayer(playerObject, spawnPosition);
+
+            // Call the client RPC to teleport the player on clients
+            PlayerHitClientRPC(playerNetworkObjectId, spawnPosition);
         }
     }
 
