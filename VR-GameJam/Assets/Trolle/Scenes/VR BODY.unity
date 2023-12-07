@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1730035, g: 0.21621539, b: 0.29820034, a: 1}
+  m_IndirectSpecularColor: {r: 0.17300312, g: 0.21621472, b: 0.2981991, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -55194,6 +55194,78 @@ PrefabInstance:
       propertyPath: m_Name
       value: Christmas_Tree_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: simulationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: RotationModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5960848889278765757, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: LifetimeByEmitterSpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6047064839696168638, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.746651
@@ -55233,6 +55305,26 @@ PrefabInstance:
     - target: {fileID: 6047064839696168638, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564778132065269564, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634008184435513722, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 18.850506
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634008184435513722, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18.850506
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634008184435513722, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18.850506
+      objectReference: {fileID: 0}
+    - target: {fileID: 8634008184435513722, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.29
       objectReference: {fileID: 0}
     - target: {fileID: 9146484341987254632, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
