@@ -12,8 +12,8 @@ public class BulletGoUnalive : NetworkBehaviour
     {
         new Vector3(14.56f, 0.37f, -15.15f),
         new Vector3(-14.56f, 0.37f, 15.15f),
-        new Vector3(-0.03f, -1.77f, -27.70f),
-        new Vector3(32f, -1.57f, 1.63f)
+        new Vector3(15.25f,0.37f,1327.70f),
+        new Vector3(-16.36f,0.370000005f,-14.479f)
     };
 
     GameObject happened;
