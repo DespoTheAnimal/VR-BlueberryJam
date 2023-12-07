@@ -136,6 +136,19 @@ public class LectureShootingScript : NetworkBehaviour
         netBullet.Spawn();
 
         // Play shooting sound effect
+        PlaySoundServerRPC();
+        //audioSource.PlayOneShot(rifleShootingSound);
+    }
+
+    [ServerRpc]
+    private void PlaySoundServerRPC()
+    {
+        PlaySoundClientRPC();
+    }
+
+    [ClientRpc]
+    private void PlaySoundClientRPC()
+    {
         audioSource.PlayOneShot(rifleShootingSound);
     }
 
