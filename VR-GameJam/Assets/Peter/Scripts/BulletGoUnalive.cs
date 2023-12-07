@@ -16,8 +16,10 @@ public class BulletGoUnalive : NetworkBehaviour
         new Vector3(-15.25f,0.37f,-14.56f)
     };
 
-    GameObject happened;
-    [SerializeField] private GameObject player;
+    GameObject happened1;
+    GameObject Happened2;
+    private GameObject player;
+    private GameObject player2;
 
     public void OnCollisionEnter(Collision other)
     {
@@ -26,7 +28,7 @@ public class BulletGoUnalive : NetworkBehaviour
             // Select a random spawn position
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
-            happened = other.gameObject;
+            happened1 = other.gameObject;
             player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
             player.transform.position = randomPosition;
 
@@ -36,9 +38,9 @@ public class BulletGoUnalive : NetworkBehaviour
         if (other.gameObject.CompareTag("Player2")){
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
-            happened = other.gameObject;
-            player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
-            player.transform.position = randomPosition;
+            Happened2 = other.gameObject;
+            player2 = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
+            player2.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
 
