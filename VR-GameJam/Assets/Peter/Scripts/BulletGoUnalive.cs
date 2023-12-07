@@ -44,7 +44,7 @@ public class BulletGoUnalive : NetworkBehaviour
             player2.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
-
+            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);
         }
     }
 
