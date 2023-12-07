@@ -7,37 +7,37 @@ using Unity.XR.CoreUtils;
 
 public class BulletGoUnalive : NetworkBehaviour
 {
-    // Define an array of spawn positions
-    private Vector3[] spawnPositions = new Vector3[]
-    {
-        new Vector3(14.56f, 0.37f, -15.15f),
-        new Vector3(-14.56f, 0.37f, 15.15f),
-        new Vector3(15.6370001f,0.37f,12.5710001f),
-        new Vector3(-16.3600006f,0.259000003f,-13.6400003f)
-    };
-
+    
+    private Vector3 SpawnPosP1 = new Vector3(14.56f, 0.37f, -15.15f);
+    private Vector3 SpawnPosP2 = new Vector3(-14.56f, 0.37f, 15.15f);
     GameObject happened;
+
     [SerializeField] private GameObject player;
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        public void OnTriggerEnter(Collider other)
         {
-            // Select a random spawn position
-            Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
-
-            happened = other.gameObject;
-            player.transform.position = randomPosition;
-            
-            ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
-            // PlayerHitServerRpc logic here
+            if (other.gameObject.CompareTag("Player1"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer1KillsServerRpc();
+                happened = other.gameObject;
+                player.transform.position = SpawnPosP1;
+                ulong playerNetworkObjectId1 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                //PlayerHitServerRpc(playerNetworkObjectId1, SpawnPosP1);
+            }
+            else if (other.gameObject.CompareTag("Player2"))
+            {
+                // Assuming this script is on the server
+                GameObject.FindWithTag("GameManager").GetComponent<GameManagement>().IncreasePlayer2KillsServerRpc();
+                happened = other.gameObject;
+                player.transform.position = SpawnPosP2;
+                ulong playerNetworkObjectId2 = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+                //PlayerHitServerRpc(playerNetworkObjectId2, SpawnPosP2);
+            }
         }
-    }
 
-    void Start()
-    {
-        player = GameObject.Find("Player");
-    }
+        void Start(){
+            player = GameObject.Find("Player");
+        }
 
     [ServerRpc(RequireOwnership = false)]
     private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
