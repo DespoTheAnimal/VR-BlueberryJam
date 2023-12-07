@@ -45877,6 +45877,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 338981444974362284, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: endTree
+      value: 
+      objectReference: {fileID: 4714929909733899409}
+    - target: {fileID: 338981444974362284, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: startTree
+      value: 
+      objectReference: {fileID: 8501314385075551976}
+    - target: {fileID: 4067478253485254498, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2255954419
+      objectReference: {fileID: 0}
     - target: {fileID: 5304019668436092199, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
       propertyPath: m_Name
       value: Christmas_Tree_Base
@@ -46226,6 +46238,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43011873168971014, guid: 0acf3a2dff16b23459cbbc51ac75dcd7, type: 2}
+--- !u!1 &4714929909733899409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6564778132065269564, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+  m_PrefabInstance: {fileID: 2591074826798313051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &5694698817766092104
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -46355,6 +46372,11 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43123832592935670, guid: 0acf3a2dff16b23459cbbc51ac75dcd7, type: 2}
+--- !u!1 &8501314385075551976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5378284863010403885, guid: fbc27d12d0f524f519d8ceacc06b2e92, type: 3}
+  m_PrefabInstance: {fileID: 2591074826798313051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
