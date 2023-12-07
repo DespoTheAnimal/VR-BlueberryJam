@@ -19,24 +19,35 @@ public class BulletGoUnalive : NetworkBehaviour
     GameObject happened;
     [SerializeField] private GameObject player;
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player1") || other.gameObject.CompareTag("Player2"))
+        if (other.gameObject.CompareTag("Player1"))
         {
             // Select a random spawn position
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
             happened = other.gameObject;
+            player = GameObject.FindWithTag("Player3");
             player.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
             // PlayerHitServerRpc logic here
         }
+        if (other.gameObject.CompareTag("Player2")){
+            Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
+
+            happened = other.gameObject;
+            player = GameObject.FindWithTag("Player4");
+            player.transform.position = randomPosition;
+
+            ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
+
+        }
     }
 
     void Start()
     {
-        player = GameObject.Find("Player");
+        //player = GameObject.Find("Player");
     }
 
     // Rest of your existing methods...
