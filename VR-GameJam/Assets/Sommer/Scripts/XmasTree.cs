@@ -24,9 +24,9 @@ public class XmasTree : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score.Value == 1){
+        if(score.Value == 3){
             startTree.SetActive(false);
-            startTree.SetActive(true);
+            endTree.SetActive(true);
             Debug.Log("Tree should be swapped");
         }
     }
@@ -35,6 +35,7 @@ public class XmasTree : NetworkBehaviour
         if(col.gameObject.CompareTag("Present")){
             //Increment a coop score (network variable)
             IncrementScore();
+            col.gameObject.tag("Untagged");
         }
     }
 
