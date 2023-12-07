@@ -51,7 +51,7 @@ public class GameManagement : NetworkBehaviour
 
     private void Winner()
     {
-        if (player1Score.Value > 2)
+        if (player1Kills.Value > 9)
         {
             audioSource.PlayOneShot(audioSource.clip);
             winnerPanel.SetActive(true);
@@ -59,7 +59,7 @@ public class GameManagement : NetworkBehaviour
             //Time.timeScale = 0;
             // Implement additional logic for when the game ends
         }
-        else if (player2Score.Value > 2)
+        else if (player2Kills.Value > 9)
         {
             audioSource.PlayOneShot(audioSource.clip);
             winnerPanel.SetActive(true);
