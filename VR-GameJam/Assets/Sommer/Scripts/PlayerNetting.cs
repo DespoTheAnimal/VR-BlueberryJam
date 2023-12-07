@@ -12,7 +12,7 @@ public class PlayerNetting : NetworkBehaviour
     //[SerializeField] private Transform body;
     //public GameObject xRorigin;
 
-    private NetworkVariable<int> score = new NetworkVariable<int>();
+    //private NetworkVariable<int> score = new NetworkVariable<int>();
 
     public override void OnNetworkSpawn()
     {
@@ -59,7 +59,7 @@ public class PlayerNetting : NetworkBehaviour
         }
     }
 
-    public void IncrementScore()
+    /*public void IncrementScore()
     {
         IncrementScoreServerRPC();
     }
@@ -79,5 +79,5 @@ public class PlayerNetting : NetworkBehaviour
     {
         base.OnNetworkDespawn();
         score.OnValueChanged -= ScoreChanged;
-    }
+    }*/
 }
