@@ -10,7 +10,7 @@ public class PlayerNetting : NetworkBehaviour
     [SerializeField] private Transform leftHand;
     [SerializeField] private Transform rightHand;
     //[SerializeField] private Transform body;
-    public GameObject xRorigin;
+    //public GameObject xRorigin;
 
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
@@ -20,16 +20,17 @@ public class PlayerNetting : NetworkBehaviour
         if (IsOwner)
         {
             VRrigReference.Singleton.SetNetworkPlayer(this);
-            gameObject.transform.GetChild(0).tag = "Player1";
+            /*gameObject.transform.GetChild(0).tag = "Player1";
             xRorigin = GameObject.Find("Player");
             xRorigin.GetComponent<CharacterController>().detectCollisions = false;
             xRorigin.GetComponent<CharacterController>().attachedRigidbody.detectCollisions = false;  
-            //xRorigin.tag = "Player3";
+            //xRorigin.tag = "Player3";*/
+            GameObject xrLocal = GameObject.Find("Player");
         }
         else
         {
-            gameObject.tag = "Player2";
-            xRorigin = GameObject.Find("Player");
+            /*gameObject.tag = "Player2";
+            xRorigin = GameObject.Find("Player");*/
             //xRorigin.tag = "Player4";
         }
 

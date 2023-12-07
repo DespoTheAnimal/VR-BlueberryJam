@@ -29,22 +29,22 @@ public class BulletGoUnalive : NetworkBehaviour
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
             happened1 = other.gameObject;
-            player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
+            /*player = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
             player.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
             // PlayerHitServerRpc logic here
-            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);
+            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);*/
         }
         if (other.gameObject.CompareTag("Player2")){
             Vector3 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
 
-            Happened2 = other.gameObject;
+            /*Happened2 = other.gameObject;
             player2 = other.gameObject.GetComponent<PlayerNetting>().xRorigin;
             player2.transform.position = randomPosition;
 
             ulong playerNetworkObjectId = other.gameObject.GetComponent<NetworkObject>().NetworkObjectId;
-            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);
+            PlayerHitServerRpc(playerNetworkObjectId, randomPosition);*/
         }
     }
 
@@ -55,7 +55,7 @@ public class BulletGoUnalive : NetworkBehaviour
 
     // Rest of your existing methods...
 
-[ServerRpc(RequireOwnership = false)]
+/*[ServerRpc(RequireOwnership = false)]
     private void PlayerHitServerRpc(ulong playerNetworkObjectId, Vector3 spawnPosition)
     {
 /*         if (IsServer)
@@ -73,7 +73,7 @@ public class BulletGoUnalive : NetworkBehaviour
                     break;
                 }
             }
-        } */
+        } 
         if (IsServer)
         {
             // Use Happened2 or player based on the playerNetworkObjectId
@@ -109,5 +109,5 @@ public class BulletGoUnalive : NetworkBehaviour
         // Adjust the position of the XR Origin
         xrOrigin.transform.position = newPosition;
         Debug.Log("XR Origin teleported to: " + newPosition);
-    }
+    }*/
 }
