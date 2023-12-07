@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -909,6 +909,51 @@ Transform:
   - {fileID: 706063889}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1322208863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1322208865}
+  - component: {fileID: 1322208864}
+  m_Layer: 0
+  m_Name: AudioCollector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1322208864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322208863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d6b3ef4f8a24fd387385237c54fedf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sampleWindow: 64
+--- !u!4 &1322208865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322208863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.017794, y: -4.8853817, z: -13.929995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362873307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1104,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb7d9a6a74e8fe4f8e2aeb7c98f0d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wit: {fileID: 0}
+  detect: {fileID: 0}
+  loudnessSens: 100
+  threshold: 2.5
+  actVoice:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 59b5d502-afb9-4cda-9eb5-1bdf022add1c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
 --- !u!114 &1629407859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,6 +1656,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb7d9a6a74e8fe4f8e2aeb7c98f0d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wit: {fileID: 1895546944}
+  detect: {fileID: 1322208864}
+  loudnessSens: 100
+  threshold: 2.5
+  actVoice:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Act Voice
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: ec192ba1-0a78-4bd6-a300-138803ae1d2f
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 8743350873290187172, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &4769136655906502
 Transform:
   m_ObjectHideFlags: 0
@@ -6487,3 +6564,4 @@ SceneRoots:
   - {fileID: 2063527966594878414}
   - {fileID: 8346436040396384418}
   - {fileID: 1895546942}
+  - {fileID: 1322208865}

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine;
 using Meta.WitAi;
 using Meta.WitAi.Json;
+using UnityEngine.InputSystem;
 
 public class VoiceActivationSlowMotion : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class VoiceActivationSlowMotion : MonoBehaviour
     public AudioLoudnessDetect detect;
     public float loudnessSens = 100;
     public float threshold = 2.5f;
+    [SerializeField] private InputActionProperty actVoice;
 
     void Update()
     {
         // Replace with your specific input for the B button
-        if (Input.GetButtonDown("Fire2"))
+
+
+        if (actVoice.action.WasPerformedThisFrame())
         {
             wit.Activate();
         }
@@ -31,7 +35,7 @@ public class VoiceActivationSlowMotion : MonoBehaviour
         //wit.events.onResponse.RemoveListener(OnWitResponse);
     }
 
-    private void OnWitResponse(WitResponseNode response)
+/*     private void OnWitResponse(WitResponseNode response)
     {
         float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
         Debug.Log(loudness);
@@ -49,7 +53,7 @@ public class VoiceActivationSlowMotion : MonoBehaviour
                 Debug.Log("Testslow");
             }
         }
-    }
+    } */
 
     private void StartSpeedramp(string[] input)
     {
