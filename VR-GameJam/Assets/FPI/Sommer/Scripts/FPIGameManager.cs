@@ -24,4 +24,15 @@ public class FPIGameManager : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public void YouWon(){
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
+    void Update(){
+        if(playerScore >= 10){
+            YouWon();
+        }
+    }
 }
