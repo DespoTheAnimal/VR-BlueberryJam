@@ -7,11 +7,6 @@ using Unity.XR.CoreUtils;
 
 public class BulletGoUnalive : NetworkBehaviour
 {
-using UnityEngine;
-using Unity.Netcode;
-
-public class BulletGoUnalive : NetworkBehaviour
-{
     // Define an array of spawn positions
     private Vector3[] spawnPositions = new Vector3[]
     {
