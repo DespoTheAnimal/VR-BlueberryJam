@@ -91,6 +91,8 @@ public class NPCBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet") && isAlive){
             isAlive = false;
             anim.SetBool("isAlive", false);
+        }
+        if(collision.gameObject.CompareTag("Bullet")){
             audioSource.clip = clip;
             audioSource.Play();
         }
