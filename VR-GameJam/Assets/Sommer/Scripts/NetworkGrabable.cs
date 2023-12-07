@@ -15,7 +15,7 @@ public class NetworkGrabable : NetworkBehaviour
         {
             var player = collision.gameObject.GetComponent<PlayerNetting>();
 
-            player.IncrementScore();
+            //player.IncrementScore();
         }
     }
 
@@ -41,7 +41,7 @@ public class NetworkGrabable : NetworkBehaviour
         if (interactorXrRig.gameObject == VRrigReference.Singleton.gameObject)
         {
             var player = VRrigReference.Singleton.localPlayer;
-            player.IncrementScore();
+           // player.IncrementScore();
         }
     }
 

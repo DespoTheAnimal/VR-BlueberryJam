@@ -9,12 +9,15 @@ public class XmasTree : NetworkBehaviour
     [SerializeField] private GameObject startTree;
     [SerializeField] private GameObject endTree;
 
+    [SerializeField] private AudioClip wrappingPressent;
+    private AudioSource audioSource;
+
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void OnNetworkSpawn(){
@@ -24,9 +27,10 @@ public class XmasTree : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(score.Value == 1){
+        if(score.Value == 3){
             startTree.SetActive(false);
-            startTree.SetActive(true);
+            endTree.SetActive(true);
+            Debug.Log("Tree should be swapped");
         }
     }
 
@@ -34,6 +38,8 @@ public class XmasTree : NetworkBehaviour
         if(col.gameObject.CompareTag("Present")){
             //Increment a coop score (network variable)
             IncrementScore();
+            PlaySoundClientRPC();
+            col.gameObject.tag = "Untagged";
         }
     }
 
@@ -51,5 +57,17 @@ public class XmasTree : NetworkBehaviour
     private void ScoreChanged(int oldValue, int currentValue)
     {
         print(currentValue);
+    }
+
+    [ServerRpc]
+    private void PlaySoundServerRPC()
+    {
+        PlaySoundClientRPC();
+    }
+
+    [ClientRpc]
+    private void PlaySoundClientRPC()
+    {
+        audioSource.PlayOneShot(wrappingPressent);
     }
 }
