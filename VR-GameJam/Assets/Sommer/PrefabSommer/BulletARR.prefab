@@ -226,3 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a22a0f767a81432096bb883f8950f7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPlanes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player: {fileID: 0}
