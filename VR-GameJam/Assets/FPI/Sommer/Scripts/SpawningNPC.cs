@@ -30,7 +30,7 @@ public class SpawningNPC : MonoBehaviour
                     float randomZ = Random.Range(item.bounds.min.z, item.bounds.max.z);
                     spawnPos = new Vector3(randomX, -0.1f, randomZ);
 
-                    if (IsPositionFree(spawnPos) && !IsInPlayerBaseArea(spawnPos))
+                    if (IsPositionFree(spawnPos))
                     {
                         GameObject randomNpc = npcs;
                         Quaternion randomRotation = Quaternion.Euler(0, Random.Range(0f, 360f), 0);
@@ -55,20 +55,5 @@ public class SpawningNPC : MonoBehaviour
             }
         }
         return true;
-    }
-
-    private bool IsInPlayerBaseArea(Vector3 position)
-    {
-        // Define the player base area
-        float baseCenterX = 10; // Adjust these values based on your player base's position
-        float baseCenterZ = 10;
-        float baseSize = 10;
-
-        float minX = baseCenterX - baseSize / 2;
-        float maxX = baseCenterX + baseSize / 2;
-        float minZ = baseCenterZ - baseSize / 2;
-        float maxZ = baseCenterZ + baseSize / 2;
-
-        return position.x > minX && position.x < maxX && position.z > minZ && position.z < maxZ;
     }
 }

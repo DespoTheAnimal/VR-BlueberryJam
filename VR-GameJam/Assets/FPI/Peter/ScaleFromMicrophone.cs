@@ -20,7 +20,7 @@ public class ScaleFromMicrophone : MonoBehaviour
     void Update()
     {
         float loudness = detect.GetLoudnessFromMicrophone() * loudnessSens;
-        Debug.Log("VOlume: " + loudness);
+        Debug.Log("Volume: " + loudness);
 
         if (loudness > threshold)
         {
