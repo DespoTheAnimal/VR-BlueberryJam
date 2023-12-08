@@ -21,13 +21,13 @@ public class GameManagement : NetworkBehaviour
 
     private void Start()
     {
-        player1Kills.OnValueChanged += UpdatePlayer1Kills;
-        player2Kills.OnValueChanged += UpdatePlayer2Kills;
+        //player1Kills.OnValueChanged += UpdatePlayer1Kills;
+        //player2Kills.OnValueChanged += UpdatePlayer2Kills;
     }
 
     private void Update()
     {
-        if (IsServer)
+        /*if (IsServer)
         {
             player1Score.Value = Flag.GetComponent<FlagLogic>().Player1Score;
             player2Score.Value = Flag.GetComponent<FlagLogic>().Player2Score;
@@ -66,7 +66,7 @@ public class GameManagement : NetworkBehaviour
             winner.text = "Player 2";
             //Time.timeScale = 0;
             // Implement additional logic for when the game ends
-        }
+        }*/
     }
 
     [ServerRpc]
