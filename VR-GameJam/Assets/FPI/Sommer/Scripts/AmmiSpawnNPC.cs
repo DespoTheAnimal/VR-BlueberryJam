@@ -24,7 +24,7 @@ public class AmmiSpawnNPC : MonoBehaviour
         {
             float randomX = Random.Range(floor.bounds.min.x, floor.bounds.max.x);
             float randomZ = Random.Range(floor.bounds.min.z, floor.bounds.max.z);
-            spawnPos = new Vector3(randomX, 0, randomZ); // Adjust the Y coordinate according to your need
+            spawnPos = new Vector3(randomX, -0.1f, randomZ); // Adjust the Y coordinate according to your need
 
             GameObject npcInstance = Instantiate(npc, spawnPos, Quaternion.identity, container.transform);
             hasSpawned = true;

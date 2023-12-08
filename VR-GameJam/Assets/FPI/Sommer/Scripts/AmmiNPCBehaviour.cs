@@ -5,17 +5,23 @@ using UnityEngine;
 public class AmmiNPCBehaviour : MonoBehaviour
 {
     private AudioSource audioSource;
-    [SerializeField] private AudioClip clip, spawnTime;
+    [SerializeField] private AudioClip clip, spawnSoundCue;
     [SerializeField] private Transform player;
     private Animator anim;
-    private GameObject objectManager;
+    private GameObject objectManager, spawningObject;
     private FPIGameManager gameManager;
-    private bool isAlive;
+    private AmmiSpawnNPC ammiSpawn;
+    private bool isAlive, shouldSpawn;
     private float spawnTimer = 5, direction = 1;
+    private Rigidbody rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         objectManager = GameObject.Find("GameManager");
         gameManager = objectManager.GetComponent<FPIGameManager>();
+
+        spawningObject = GameObject.Find("NPC_Spawner");
+        ammiSpawn = spawningObject.GetComponent<AmmiSpawnNPC>();
 
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -27,12 +33,18 @@ public class AmmiNPCBehaviour : MonoBehaviour
         }
         anim.SetBool("isAlive", true);
         isAlive = true;
+        shouldSpawn = true;
+        audioSource.clip = spawnSoundCue;
+        audioSource.Play();
     }
 
-    // Update is called once per frame
     void Update()
     {
         LookAtPlayer();
+        SpawnNextNPC();
+        if(!isAlive){
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
     }
 
     void LookAtPlayer(){
@@ -51,8 +63,9 @@ public class AmmiNPCBehaviour : MonoBehaviour
     public void SpawnNextNPC(){
         if(!isAlive){
             spawnTimer -= Time.deltaTime;
-            if(spawnTimer <= 0){
-                //Call instantiate method
+            if(spawnTimer <= 0 && shouldSpawn){
+                shouldSpawn = false;
+                ammiSpawn.NPCSpawn();
             }
         }
     }
@@ -63,7 +76,7 @@ public class AmmiNPCBehaviour : MonoBehaviour
             isAlive = false;
             anim.SetBool("isAlive", false);
             gameManager.IncrementPlayerScore();
-            Destroy(this, 10);
+            Destroy(gameObject, 10);
         }
         if(collision.gameObject.CompareTag("Bullet")){
             audioSource.clip = clip;
