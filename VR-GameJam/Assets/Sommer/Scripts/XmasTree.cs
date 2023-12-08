@@ -16,7 +16,7 @@ public class XmasTree : NetworkBehaviour
     [SerializeField] private TextMeshProUGUI scoreTexT; // Original UI Text element
     [SerializeField] private TextMeshProUGUI victoryText1; // New UI Text element for after finding all presents
     [SerializeField] private TextMeshProUGUI victoryText2; // New UI Text element for after finding all presents
-    private const int totalPresentsNeeded = 1; // Total presents needed to win
+    private const int totalPresentsNeeded = 8; // Total presents needed to win
 
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
