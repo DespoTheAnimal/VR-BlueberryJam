@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028373, g: 0.22571398, b: 0.30692294, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11297,6 +11297,7 @@ GameObject:
   - component: {fileID: 1822845333}
   - component: {fileID: 1822845335}
   - component: {fileID: 1822845336}
+  - component: {fileID: 1822845337}
   m_Layer: 0
   m_Name: NPC_Spawner
   m_TagString: Untagged
@@ -11422,7 +11423,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822845331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e06ccdf8af60a497081d5b6842cc4029, type: 3}
   m_Name: 
@@ -11430,6 +11431,21 @@ MonoBehaviour:
   floor:
   - {fileID: 918583049}
   npcs: {fileID: 523226742799446049, guid: 8a2c4770d163243a0934205fdd73f36c, type: 3}
+  container: {fileID: 1276983860}
+--- !u!114 &1822845337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822845331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 002b2808b03dd43709149d40f4bb925f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: {fileID: 918583049}
+  npc: {fileID: 523226742799446049, guid: 8a2c4770d163243a0934205fdd73f36c, type: 3}
   container: {fileID: 1276983860}
 --- !u!1001 &1847477205
 PrefabInstance:
