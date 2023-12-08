@@ -12,7 +12,7 @@ public class AmmiNPCBehaviour : MonoBehaviour
     private FPIGameManager gameManager;
     private AmmiSpawnNPC ammiSpawn;
     private bool isAlive, shouldSpawn;
-    private float spawnTimer = 5, direction = 1;
+    private float spawnTimer = 3, direction = 1;
     private Rigidbody rb;
     void Start()
     {
