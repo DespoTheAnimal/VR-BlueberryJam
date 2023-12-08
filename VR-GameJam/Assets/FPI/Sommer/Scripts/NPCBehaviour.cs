@@ -11,15 +11,8 @@ public class NPCBehaviour : MonoBehaviour
     private float moveSpeed = 2.0f, directionChangeInterval = 2.0f, direction = 1, timer, respawnTimer = 10f;
     private bool isAlive = false, isMoving = true;
     private Animator anim;
-
     private GameObject objectManager;
     private FPIGameManager gameManager;
-
-
-
-    void Awake(){
-        
-    }
     void Start()
     {
         objectManager = GameObject.Find("GameManager");
