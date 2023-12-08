@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-using TMPro; // Add this for TextMeshPro
+using TMPro; // For TextMeshPro
 
 public class XmasTree : NetworkBehaviour
 {
@@ -12,18 +12,20 @@ public class XmasTree : NetworkBehaviour
     [SerializeField] private AudioClip wrappingPressent;
     private AudioSource audioSource;
 
-    [SerializeField] private TextMeshProUGUI scoreText; // UI Text element reference
-    [SerializeField] private TextMeshProUGUI scoreTexT; // UI Text element reference
-    private const int totalPresentsNeeded = 8; // Total presents needed to win
+    [SerializeField] private TextMeshProUGUI scoreText; // Original UI Text element
+    [SerializeField] private TextMeshProUGUI scoreTexT; // Original UI Text element
+    [SerializeField] private TextMeshProUGUI victoryText1; // New UI Text element for after finding all presents
+    [SerializeField] private TextMeshProUGUI victoryText2; // New UI Text element for after finding all presents
+    private const int totalPresentsNeeded = 1; // Total presents needed to win
 
     private NetworkVariable<int> score = new NetworkVariable<int>();
 
-    // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         UpdateScoreText(); // Initial score text update
-
+        victoryText1.gameObject.SetActive(false); // Initially hide new victory text
+        victoryText2.gameObject.SetActive(false); // Initially hide new victory text
     }
 
     public override void OnNetworkSpawn()
@@ -31,13 +33,16 @@ public class XmasTree : NetworkBehaviour
         score.OnValueChanged += ScoreChanged;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (score.Value == totalPresentsNeeded)
         {
             startTree.SetActive(false);
             endTree.SetActive(true);
+            scoreText.gameObject.SetActive(false); // Disable original score text
+            scoreTexT.gameObject.SetActive(false); // Disable original score text
+            victoryText1.gameObject.SetActive(true); // Enable new victory text
+            victoryText2.gameObject.SetActive(true); // Enable new victory text
             Debug.Log("Tree should be swapped");
         }
     }
@@ -89,4 +94,3 @@ public class XmasTree : NetworkBehaviour
         audioSource.PlayOneShot(wrappingPressent);
     }
 }
-
