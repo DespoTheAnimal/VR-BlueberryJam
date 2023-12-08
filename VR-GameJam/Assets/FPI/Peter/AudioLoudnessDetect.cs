@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioLoudnessDetect : MonoBehaviour
 {
     public int sampleWindow = 64;
-    private AudioClip clip;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
