@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 6989647718107286242}
   - component: {fileID: 7077013388080391152}
   m_Layer: 0
-  m_Name: ordentlig sindsyg rifle mand
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
