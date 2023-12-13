@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/AMMI/Sommer/SommerLaverAMMI.unity
     guid: 7eab7d9409ddb46c4b5fcda8663452a1
   - enabled: 0
-    path: Assets/AMMI/Trolle/MikkelLaverDinMor.unity
+    path: Assets/AMMI/Trolle/TrolleLaverAMMI.unity
     guid: e09f32502c5b7094c897eff36adfadd5
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 0d7d452c861e3aa45ace798ca20d1bab, type: 2}
