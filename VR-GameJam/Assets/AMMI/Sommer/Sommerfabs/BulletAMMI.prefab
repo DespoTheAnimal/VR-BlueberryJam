@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6631605742351386163}
   - component: {fileID: 5833647584129038473}
   m_Layer: 0
-  m_Name: BulletFPI
+  m_Name: BulletAMMI
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
